@@ -1,0 +1,15 @@
+{
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.envFile": "/Users/nicolapanozzo/unibo/Kaunas Courses/Component Based Software Engineering/chesscom_api_wrapper/.env",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test*.py"
+    ]
+}
