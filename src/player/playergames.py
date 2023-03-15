@@ -1,20 +1,21 @@
-import chess.pgn
-import io
-
 class ChesscomGame:
-    def __init__(self, gameJSON):
-
-        self.url = gameJSON["url"]
-        self.move_by = gameJSON["move_by"]
-        self.pgn = chess.pgn.read_game(io.StringIO(gameJSON["pgn"]))
-        self.time_control = gameJSON["time_control"]
-        self.last_activity = gameJSON["last_activity"]
-        self.rated = gameJSON["rated"]
-        self.turn = gameJSON["turn"]
-        self.fen = gameJSON["fen"]
-        self.start_time = gameJSON["start_time"]
-        self.time_class = gameJSON["time_class"]
-        self.rules = gameJSON["rules"]
-        self.white = gameJSON["white"]
-        self.black = gameJSON["black"]
-        self.pgnJSON = gameJSON["pgn"]
+    def __init__(self, data):
+        # refactor previus code using .get() method with None as default value
+        self.url = data.get("url", None)
+        self.move_by = data.get("move_by", None)
+        self.pgn = data.get("pgn", None)
+        self.time_control = data.get("time_control", None)
+        self.last_activity = data.get("last_activity", None)
+        self.rated = data.get("rated", None)
+        self.turn = data.get("turn", None)
+        self.fen = data.get("fen", None)
+        self.start_time = data.get("start_time", None)
+        self.time_class = data.get("time_class", None)
+        self.rules = data.get("rules", None)
+        self.white = data.get("white", None)
+        self.black = data.get("black", None)
+        self.end_time = data.get("end_time", None)
+        self.accuracies = data.get("accuracies", None)
+        self.tcn = data.get("tcn", None)
+        self.uuid = data.get("uuid", None)
+        self.initial_setup = data.get("initial_setup", None)

@@ -1,5 +1,11 @@
-import src.chessplayer as chessplayer 
+import sys
 
+
+
+sys.path.append("/Users/nicolapanozzo/unibo/Kaunas Courses/Component Based Software Engineering/chesscom_api_wrapper")
+
+from src.chessclub import Club
+from src.chessplayer import ChessPlayer 
 
 class ChessWrapper(object):
   """A class to wrap the chess.com API"""
@@ -10,10 +16,18 @@ class ChessWrapper(object):
 
 
   def getPlayer(self,username):
-    """Returns a dictionary of a player's info"""
-    player = chessplayer.ChessPlayer(username)
+    """Returns a chess player"""
+    player = ChessPlayer(username)
 
     return player
-
   
+  def getClub(self, clubname):
+    """Returns a Club"""
+    club = Club(clubname)
+    return club
+  
+  def getTitledPlayers(self):
+    """Returns titled players"""
+    return list(map(lambda player: ChessPlayer(player), ChessPlayer.getTitledPlayers(self,"GM")))
+    
 

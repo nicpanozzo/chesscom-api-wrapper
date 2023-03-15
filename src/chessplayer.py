@@ -1,10 +1,10 @@
+from src.player.playerarchive import PlayerArchive
 from src.chesscomhandlers.playerhandler import PlayerHandler
 from src.player.chessplayerstats import ChessPlayerStats
 from src.player.chessplayerprofile import ChessPlayerProfile
 from src.player.playergames import ChesscomGame
 # from chesswrapper.chessplayerstats import ChessPlayerStats
 # from chessplayerprofile import ChessPlayerProfile
-
 
 class ChessPlayer(object):
   """A class to represent a chess.com player"""
@@ -27,13 +27,30 @@ class ChessPlayer(object):
     
   
   def getStats(self):
-    """Returns a dictionary of a player's stats"""
-    playerStatsJSON = PlayerHandler().getPlayerStats(self.username)
-    if playerStatsJSON is not None:
-      self.stats = ChessPlayerStats(playerStatsJSON)
+    """Returns player's stats"""
+    self.stats = PlayerHandler().getPlayerStats(self.username)
     
   def getPlayerGames(self):
-    """Returns a dictionary of a player's games"""
-    playerGamesJSON = PlayerHandler().getPlayerGames(self.username)
-    if playerGamesJSON is not None:
-      self.games = list(map(lambda game: ChesscomGame(game), playerGamesJSON['games']))
+    """Returns player's games"""
+    self.games = PlayerHandler().getPlayerGames(self.username)
+
+  def getPlayerGamesToMove(self):
+    """Returns player's games"""
+    self.gamesToMove = PlayerHandler().getPlayerGamesToMove(self.username)
+  
+  def getPlayerArchives(self):
+    """Returns player's archives"""
+    self.archives: list[PlayerArchive] = PlayerHandler().getPlayerArchives(self.username)
+  
+  def getPlayerTournaments(self):
+    """Returns player's tournaments"""
+    self.tournaments = PlayerHandler().getPlayerTournaments(self.username)
+
+  def getPlayerClubs(self):
+    """Returns player's clubs"""
+    self.clubs = PlayerHandler().getPlayerClubs(self.username)
+  
+  @staticmethod
+  def getTitledPlayers(self, category):
+    """Returns titled players"""
+    return PlayerHandler().getTitledPlayers(category)

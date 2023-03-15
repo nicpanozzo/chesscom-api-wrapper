@@ -1,8 +1,9 @@
-BASE_URL = "https://api.chess.com/pub/"
+
 
 class API():
     """A class to manage API calls"""
     # PLAYER API (PLAYER_BASE + username (+ ?))
+    BASE_URL = "https://api.chess.com/pub/"
     PLAYER_BASE = BASE_URL + "player/"
     STATS = "stats/"
     GAMES = "games/"
@@ -10,5 +11,7 @@ class API():
     GAMES_ARCHIVES = "games/archives/"
     GAMES_MONTHLY_ARCHIVES = "games/YEAR/MONTH/"
     PGN = "pgn/"
-    CLUBS = "clubs/"
+    CLUB = "club/"
+    PLAYER_CLUBS = "clubs/"
     TOURNAMENTS = "tournaments/"
+    TITLED_PLAYERS = "titled/"
