@@ -1,7 +1,7 @@
 
 class ClubProfile(object):
     def __init__(self, data: dict):
-        self.id = data.get('@id', None)
+        self.idUrl = data.get('@id', None)
         self.name = data.get('name', None)
         self.club_id = data.get('club_id', None)
         self.country = data.get('country', None)

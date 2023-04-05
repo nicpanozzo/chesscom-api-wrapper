@@ -12,6 +12,11 @@ class API():
     GAMES_MONTHLY_ARCHIVES = "games/YEAR/MONTH/"
     PGN = "pgn/"
     CLUB = "club/"
-    PLAYER_CLUBS = "clubs/"
+    CLUBS = "clubs/"
     TOURNAMENTS = "tournaments/"
     TITLED_PLAYERS = "titled/"
+    COUNTRY = "country/"
+    PLAYERS = "players/"
+    PUZZLE = "puzzle/"
+    RANDOM = "random/"
+

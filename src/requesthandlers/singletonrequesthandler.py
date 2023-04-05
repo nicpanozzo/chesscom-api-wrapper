@@ -20,14 +20,14 @@ class SingletonRequestHandler(requesthandler.RequestHandler):
     def doRequest(self, endpoint, ts=0):
         """Returns a dictionary of a player's info"""
         
-        # with self.lock:
-        if ts > 0:
-            print("Sleeping for " + str(ts) + " milliseconds")
-            sleep(ts/1000)
-        response = requests.get(endpoint)
-        if response.status_code == 429:
-            if ts < 30:
-                return self.doRequest(endpoint, (ts + 3))
+        with self.lock:
+            if ts > 0:
+                print("Sleeping for " + str(ts) + " milliseconds")
+                sleep(ts/1000)
+            response = requests.get(endpoint)
+            if response.status_code == 429:
+                if ts < 30:
+                    return self.doRequest(endpoint, (ts + 3))
         # print(response.json())
         return response
         

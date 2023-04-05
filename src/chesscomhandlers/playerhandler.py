@@ -1,6 +1,6 @@
 # from src.player.playerarchive import PlayerArchive
 # from src.chessplayer import ChessPlayer
-from src.player.playertournament import PlayerTournament
+from src.player.playertournament import PlayerTournaments
 from src.player.playerclub import PlayerClub
 from src.apimanager import API
 from src.player.playerarchive import PlayerArchive
@@ -71,18 +71,19 @@ class PlayerHandler(chesscomhandler.ChesscomHandler):
     
     def getPlayerClubs(self, username) -> list[PlayerClub]:
         """Returns player's clubs"""
-        response = self.doRequest(API.PLAYER_BASE + username + "/" + API.PLAYER_CLUBS)
+        response = self.doRequest(API.PLAYER_BASE + username + "/" + API.CLUBS)
         if response is None:
             return None
         playerClubs = list(map(lambda club: PlayerClub(club["name"], club["joined"]), response.json()['clubs']))
         return playerClubs
     
-    def getPlayerTournaments(self, username):
+    def getPlayerTournaments(self, username) -> PlayerTournaments:
         """Returns player's tournaments"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.TOURNAMENTS)
         if response is None:
             return None
-        tournaments = list(map(lambda club: PlayerTournament(club), response.json()['finished']))
+        tournaments = PlayerTournaments(response.json())
+
         return tournaments
 
     def getTitledPlayers(self, category):
