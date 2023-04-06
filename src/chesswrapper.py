@@ -1,6 +1,9 @@
 import sys
 
 
+from src.chessstreamer import ChessStreamer
+
+
 
 
 
@@ -12,7 +15,9 @@ from src.chessplayer import ChessPlayer
 from src.chesstournament import Tournament
 from src.chessteammatch import TeamMatch
 from src.chesscountry import ChessCountry
-from src.dailypuzzle import Puzzle, PuzzleFactory
+from src.dailypuzzle import PuzzleFactory
+
+from src.chessleaderboards import ChessLeaderboards
 class ChessWrapper(object):
   """A class to wrap the chess.com API"""
   
@@ -57,4 +62,12 @@ class ChessWrapper(object):
   def getRandomPuzzle(self):
     """Returns a random puzzle"""
     return PuzzleFactory().getRandomPuzzle()
+  
+  def getStreamers(self):
+    """Returns a list of streamers"""
+    return ChessStreamer.getStreamers(self)
+  
+  def getLeaderboards(self):
+    """Returns a list of streamers"""
+    return ChessLeaderboards.getLeaderboards(self)
 

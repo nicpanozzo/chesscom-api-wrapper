@@ -2,6 +2,8 @@ import random
 import threading
 
 
+
+
 from src.chessclub import Club
 from src.club.clubprofile import ClubProfile
 from src.chessplayer import ChessPlayer
@@ -16,6 +18,7 @@ from src.player.playerclub import PlayerClub
 import src.chesswrapper as chesswrapper 
 import unittest
 
+
 from src.tournament.tournamentinfo import TournamentInfo
 from src.tournament.tournamnetroundinfo import TournamentRoundInfo
 from src.tournament.tournamentroundgroup import TournamentRoundGroup
@@ -27,6 +30,11 @@ from src.teammatch.teammatchboardinfo import TeamMatchBoardInfo
 from src.country.countryinfo import CountryInfo
 
 from src.chesscomhandlers.dailypuzzlehandler import PuzzleInfo
+
+from src.chessstreamer import ChessStreamer
+from src.streamer.chessstreamerinfo import ChessStreamerInfo
+
+from src.leaderboards.leaderboardsinfo import LeaderboardsInfo
 
 class PlayerTest(unittest.TestCase):
     def test_player_profile(self):
@@ -287,3 +295,25 @@ class PuzzleTest(unittest.TestCase):
         "Puzzle.info should be a PuzzleInfo object"
         assert isinstance(puzzle.info, PuzzleInfo),  "Puzzle.info should be a PuzzleInfo object"
         # assert puzzle.info.title == "Loose Piece Yo-Yo" , "Puzzle id should be 'Loose Piece Yo-Yo', not {}".format(puzzle.info.title)
+
+class StreamerTest(unittest.TestCase):
+    def test_streamers(self):
+        """Tests an API call to get streamers' info"""
+
+        chess_instance = chesswrapper.ChessWrapper()
+        streamers = chess_instance.getStreamers()
+        "Streamers should be a list of Streamer objects"
+        assert isinstance(streamers[0], ChessStreamer),  "Streamers should be a list of Streamer objects"
+        assert isinstance(streamers[0].info, ChessStreamerInfo),  "Streamers should be a list of Streamer objects"
+        assert streamers[0].info.username == "lularobs" , "Streamer should be lularobs, not {}".format(streamers[0].username)
+
+class LeaderboardsTest(unittest.TestCase):
+    def test_leaderboard(self):
+        """Tests an API call to get a leaderboard's info"""
+            
+        chess_instance = chesswrapper.ChessWrapper()
+        leaderboards = chess_instance.getLeaderboards()
+        
+        "Leaderboard.info should be a LeaderboardInfo object"
+        assert isinstance(leaderboards.info, LeaderboardsInfo),  "Leaderboard.info should be a LeaderboardInfo object"
+        assert leaderboards.info.daily[0].rank == 1 , "Leaderboard rank of first player should be 1, not {}".format(leaderboards.info.daily[0].rank)

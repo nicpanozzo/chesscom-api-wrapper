@@ -19,4 +19,6 @@ class API():
     PLAYERS = "players/"
     PUZZLE = "puzzle/"
     RANDOM = "random/"
+    STREAMERS = "streamers/"
+    LEADERBOARDS = "leaderboards/"
 
