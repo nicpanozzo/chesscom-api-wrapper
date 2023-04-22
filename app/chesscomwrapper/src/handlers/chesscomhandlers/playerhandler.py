@@ -1,5 +1,8 @@
 # from src.player.playerarchive import PlayerArchive
 # from src.chessplayer import ChessPlayer
+from typing import Optional
+
+from ...models.player.titledcategory import TitledCategory
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ...models.player.playertournament import PlayerTournaments
@@ -22,7 +25,7 @@ class PlayerHandler(ChesscomHandler):
         self.requestHandler = SingletonRequestHandler()
         pass
 
-    def getPlayerProfile(self, username) -> ChessPlayerProfile:
+    def getPlayerProfile(self, username) -> Optional[ChessPlayerProfile]:
         """Returns a dictionary of a player's info"""
         response = self.doRequest(API.PLAYER_BASE + username)
         if response is None:
@@ -30,7 +33,7 @@ class PlayerHandler(ChesscomHandler):
         profile = ChessPlayerProfile(response.json())
         return profile
     
-    def getPlayerStats(self, username) -> ChessPlayerStats:
+    def getPlayerStats(self, username) -> Optional[ChessPlayerStats]:
         """Returns a dictionary of a player's stats"""
 
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.STATS)
@@ -40,7 +43,7 @@ class PlayerHandler(ChesscomHandler):
         stats = ChessPlayerStats(response.json())
         return stats
     
-    def getPlayerGames(self, username):
+    def getPlayerGames(self, username) -> Optional[list[ChesscomGame]]:
         """Returns a dictionary of a player's games"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.GAMES)
         if response is None:
@@ -48,7 +51,7 @@ class PlayerHandler(ChesscomHandler):
         games = list(map(lambda game: ChesscomGame(game), response.json()['games']))
         return games
     
-    def getPlayerGamesToMove(self, username):
+    def getPlayerGamesToMove(self, username) -> Optional[list[ChesscomGame]]:
         """Returns a dictionary of a player's games"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.GAMES_TO_MOVE)
         if response is None:
@@ -56,7 +59,7 @@ class PlayerHandler(ChesscomHandler):
         games = list(map(lambda game: ChesscomGame(game), response.json()['games']))
         return games
     
-    def getPlayerArchives(self, username):
+    def getPlayerArchives(self, username) -> Optional[list[PlayerArchive]]:
         """Returns a dictionary of a player's archives"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.GAMES_ARCHIVES)
         if response is None:
@@ -71,7 +74,7 @@ class PlayerHandler(ChesscomHandler):
             archives.append(PlayerArchive(username, month, year))
         return archives
     
-    def getPlayerClubs(self, username) -> list[PlayerClub]:
+    def getPlayerClubs(self, username) -> Optional[list[PlayerClub]]:
         """Returns player's clubs"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.CLUBS)
         if response is None:
@@ -79,7 +82,7 @@ class PlayerHandler(ChesscomHandler):
         playerClubs = list(map(lambda club: PlayerClub(club["name"], club["joined"]), response.json()['clubs']))
         return playerClubs
     
-    def getPlayerTournaments(self, username) -> PlayerTournaments:
+    def getPlayerTournaments(self, username) -> Optional[PlayerTournaments]:
         """Returns player's tournaments"""
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.TOURNAMENTS)
         if response is None:
@@ -87,10 +90,11 @@ class PlayerHandler(ChesscomHandler):
         tournaments = PlayerTournaments(response.json())
 
         return tournaments
-
-    def getTitledPlayers(self, category):
+    
+    
+    def getTitledPlayers(self, category: TitledCategory) -> Optional[list[str]]:
         """Returns a dictionary of titled players"""
-        response = self.doRequest(API.BASE_URL + API.TITLED_PLAYERS + category)
+        response = self.doRequest(API.BASE_URL + API.TITLED_PLAYERS + category.value)
         if response is None:
             return None
         players = response.json()["players"]

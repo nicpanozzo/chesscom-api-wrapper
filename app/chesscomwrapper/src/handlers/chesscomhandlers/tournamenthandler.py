@@ -1,6 +1,8 @@
 from ...models.tournament.tournamnetroundinfo import TournamentRoundInfo
 from ...apimanager import API
-from ..chesscomhandler import ChesscomHandler, NoneErrorHandler, SingletonRequestHandler
+from ..chesscomhandler import ChesscomHandler
+from ..errorhandlers.noneerrorhandler import NoneErrorHandler
+from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ...models.tournament.tournamentinfo import TournamentInfo
 
 

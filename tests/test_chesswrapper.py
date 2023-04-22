@@ -4,37 +4,38 @@ import threading
 
 
 
-from src.chessclub import Club
-from src.club.clubprofile import ClubProfile
-from src.chessplayer import ChessPlayer
-from src.player.chessplayerstats import ChessPlayerStats
-from src.player.playerarchive import PlayerArchive
-from src.player.playergames import ChesscomGame
-from src.player.chessplayerprofile import ChessPlayerProfile
+from app.chesscomwrapper.src.chessclub import Club
+from app.chesscomwrapper.src.models.club.clubprofile import ClubProfile
+from app.chesscomwrapper.src.chessplayer import ChessPlayer
+from app.chesscomwrapper.src.models.player.chessplayerstats import ChessPlayerStats
+from app.chesscomwrapper.src.playerarchive import PlayerArchive
+from app.chesscomwrapper.src.models.player.playergames import ChesscomGame
+from app.chesscomwrapper.src.models.player.chessplayerprofile import ChessPlayerProfile
 
-from src.player.playertournament import PlayerTournaments
-from src.player.playerclub import PlayerClub
+from app.chesscomwrapper.src.models.player.playertournament import PlayerTournaments
+from app.chesscomwrapper.src.models.player.playerclub import PlayerClub
 
-import src.chesswrapper as chesswrapper 
+import app.chesscomwrapper.src.chesswrapper as chesswrapper 
 import unittest
 
 
-from src.tournament.tournamentinfo import TournamentInfo
-from src.tournament.tournamnetroundinfo import TournamentRoundInfo
-from src.tournament.tournamentroundgroup import TournamentRoundGroup
-from src.tournament.tournamentroundgroupinfo import TournamentRoundGroupInfo
+from app.chesscomwrapper.src.models.tournament.tournamentinfo import TournamentInfo
+from app.chesscomwrapper.src.models.tournament.tournamnetroundinfo import TournamentRoundInfo
+from app.chesscomwrapper.src.tournamentroundgroup import TournamentRoundGroup
+from app.chesscomwrapper.src.models.tournament.tournamentroundgroupinfo import TournamentRoundGroupInfo
 
-from src.teammatch.teammatchinfo import TeamMatchInfo
-from src.teammatch.teammatchboardinfo import TeamMatchBoardInfo
+from app.chesscomwrapper.src.models.teammatch.teammatchinfo import TeamMatchInfo
+from app.chesscomwrapper.src.models.teammatch.teammatchboardinfo import TeamMatchBoardInfo
 
-from src.country.countryinfo import CountryInfo
+from app.chesscomwrapper.src.models.country.countryinfo import CountryInfo
 
-from src.chesscomhandlers.dailypuzzlehandler import PuzzleInfo
+from app.chesscomwrapper.src.models.puzzle.puzzleinfo import PuzzleInfo
 
-from src.chessstreamer import ChessStreamer
-from src.streamer.chessstreamerinfo import ChessStreamerInfo
+from app.chesscomwrapper.src.chessstreamer import ChessStreamer
+from app.chesscomwrapper.src.models.streamer.chessstreamerinfo import ChessStreamerInfo
 
-from src.leaderboards.leaderboardsinfo import LeaderboardsInfo
+from app.chesscomwrapper.src.models.leaderboards.leaderboardsinfo import LeaderboardsInfo
+
 
 class PlayerTest(unittest.TestCase):
     def test_player_profile(self):
@@ -148,7 +149,7 @@ class PlayerTest(unittest.TestCase):
         """Tests an API call to get all the titled players"""
 
         chess_instance = chesswrapper.ChessWrapper()
-        titled_players = chess_instance.getTitledPlayers()
+        titled_players = chess_instance.getTitledPlayers(chesswrapper.TitledCategory.GM)
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(titled_players[0], ChessPlayer),  "Archive.games should be a list(ChesscomGame) object"
         # assert titled_players[0].name == "Magnus Carlsen" , "In the first game of the first archive should be rated == True, not {}".format(player.archives[0].games[0].rated)

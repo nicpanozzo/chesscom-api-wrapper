@@ -1,3 +1,11 @@
+from typing import Optional
+
+from .models.player.titledcategory import TitledCategory
+
+from .models.player.playerclub import PlayerClub
+
+from .models.player.playertournament import PlayerTournaments
+from .lazy_decorator import lazy_property
 from .playerarchive import PlayerArchive
 from .handlers.chesscomhandlers.playerhandler import PlayerHandler
 from .models.player.chessplayerstats import ChessPlayerStats
@@ -8,15 +16,7 @@ from .models.player.playergames import ChesscomGame
 
 
     
-def lazy_property(fn):
-    attr_name = '_lazy_' + fn.__name__
 
-    @property
-    def _lazy_property(self):
-        if not hasattr(self, attr_name):
-            setattr(self, attr_name, fn(self))
-        return getattr(self, attr_name)
-    return _lazy_property
 
 class ChessPlayer(object):
   """A class to represent a chess.com player"""
@@ -32,12 +32,8 @@ class ChessPlayer(object):
       self.gamesToMove
       self.tournaments
       self.clubs
-    
-    
-    
-    
-    
     pass
+  
 
   @lazy_property
   def profile(self):
@@ -66,37 +62,37 @@ class ChessPlayer(object):
 
   
 
-  def getProfile(self):
+  def getProfile(self) -> Optional[ChessPlayerProfile]:
     """Returns a dictionary of a player's profile"""
     
     return PlayerHandler().getPlayerProfile(self.username)
     
   
-  def getStats(self):
+  def getStats(self) -> Optional[ChessPlayerStats]:
     """Returns player's stats"""
     return PlayerHandler().getPlayerStats(self.username)
     
-  def getPlayerGames(self):
+  def getPlayerGames(self) -> Optional[list[ChesscomGame]]:
     """Returns player's games"""
     return PlayerHandler().getPlayerGames(self.username)
 
-  def getPlayerGamesToMove(self):
+  def getPlayerGamesToMove(self) -> Optional[list[ChesscomGame]]:
     """Returns player's games"""
     return PlayerHandler().getPlayerGamesToMove(self.username)
   
-  def getPlayerArchives(self):
+  def getPlayerArchives(self) -> Optional[list[PlayerArchive]]:
     """Returns player's archives"""
     return PlayerHandler().getPlayerArchives(self.username)
   
-  def getPlayerTournaments(self):
+  def getPlayerTournaments(self) -> Optional[PlayerTournaments]:
     """Returns player's tournaments"""
     return PlayerHandler().getPlayerTournaments(self.username)
 
-  def getPlayerClubs(self):
+  def getPlayerClubs(self) -> Optional[list[PlayerClub]]:
     """Returns player's clubs"""
     return PlayerHandler().getPlayerClubs(self.username)
   
   @staticmethod
-  def getTitledPlayers(self, category):
+  def getTitledPlayers(self, category: TitledCategory):
     """Returns titled players"""
-    return PlayerHandler().getTitledPlayers(category)
+    return list(map(lambda player: ChessPlayer(player),PlayerHandler().getTitledPlayers(category)))
