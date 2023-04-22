@@ -1,5 +1,6 @@
 from chesscomwrapper import ChessWrapper
 nic = ChessWrapper().getPlayer("nicolapanozzo")
-nic.getProfile()
+nic.profile
+nic.profile
 
-print(nic.profile.name)
+print(nic.profile.avatar)

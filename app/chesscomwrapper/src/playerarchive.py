@@ -1,4 +1,4 @@
-from app.chesscomwrapper.src.lazy_decorator import lazy_property
+import functools
 from .handlers.chesscomhandlers.archivehandler import ArchiveHandler
 
 
@@ -11,11 +11,11 @@ class PlayerArchive(object):
             self.games
             self.pgn
     
-    @lazy_property
+    @functools.cached_property
     def games(self):
         return self._getGames()
     
-    @lazy_property
+    @functools.cached_property
     def pgn(self):
         return self._getPGN()
 

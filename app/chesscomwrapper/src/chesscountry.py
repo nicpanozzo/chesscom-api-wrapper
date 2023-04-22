@@ -1,5 +1,6 @@
 from app.chesscomwrapper.src.lazy_decorator import lazy_property
 from .handlers.chesscomhandlers.countryhandler import CountryHandler
+import functools
 
 
 class ChessCountry(object):
@@ -10,15 +11,15 @@ class ChessCountry(object):
             self.players
             self.clubs
 
-    @lazy_property
+    @functools.cached_property
     def info(self):
         return self._getInfo()
     
-    @lazy_property
+    @functools.cached_property
     def players(self):
         return self._getPlayers()
     
-    @lazy_property
+    @functools.cached_property
     def clubs(self):
         return self._getClubs()
     

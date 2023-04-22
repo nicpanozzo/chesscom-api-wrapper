@@ -13,6 +13,7 @@ from .models.player.chessplayerprofile import ChessPlayerProfile
 from .models.player.playergames import ChesscomGame, ChesscomGameToMove
 # from chesswrapper.chessplayerstats import ChessPlayerStats
 # from chessplayerprofile import ChessPlayerProfile
+import functools
 
 
     
@@ -35,31 +36,31 @@ class ChessPlayer(object):
     pass
   
 
-  @lazy_property
+  @functools.cached_property
   def profile(self):
     return self._getProfile()
 
-  @lazy_property
+  @functools.cached_property
   def stats(self):
     return self._getStats()
 
-  @lazy_property
+  @functools.cached_property
   def games(self):
     return self._getPlayerGames()
 
-  @lazy_property
+  @functools.cached_property
   def gamesToMove(self):
     return self._getPlayerGamesToMove()
 
-  @lazy_property
+  @functools.cached_property
   def tournaments(self):
     return self._getPlayerTournaments()
 
-  @lazy_property
+  @functools.cached_property
   def clubs(self):
     return self._getPlayerClubs() 
 
-  @lazy_property
+  @functools.cached_property
   def archives(self):
     return self._getPlayerArchives() 
 

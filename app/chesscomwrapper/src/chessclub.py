@@ -2,6 +2,7 @@ from app.chesscomwrapper.src.lazy_decorator import lazy_property
 from .models.player.playerclub import PlayerClub
 from .models.club.clubmember import ClubMember
 from .handlers.chesscomhandlers.clubhandler import ClubHandler
+import functools
 
 
 class Club(object):
@@ -19,11 +20,11 @@ class Club(object):
         
 
 
-    @lazy_property
+    @functools.cached_property
     def profile(self):
         return self._getProfile()
     
-    @lazy_property
+    @functools.cached_property
     def members(self):
         return self._getMembers()
     
