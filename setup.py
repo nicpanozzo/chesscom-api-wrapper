@@ -11,7 +11,7 @@ setup(
     description='A wrapper for the chess.com API',
     package_dir={'': 'app'},
     packages=find_packages(where='app'),
-    long_description="long_description",
+    long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/nicpanozzo/chesscom-api-wrapper',
     author='Nicola Panozzo',
