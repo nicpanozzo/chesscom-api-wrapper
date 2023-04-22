@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-# with open('app/chesscomwrapper/README.md') as f:
-#     long_description = f.read()
+with open('README.md') as f:
+    long_description = f.read()
 
 exec(open('app/chesscomwrapper/version.py').read())
 
