@@ -1,4 +1,3 @@
-from app.chesscomwrapper.src.lazy_decorator import lazy_property
 from .handlers.chesscomhandlers.countryhandler import CountryHandler
 import functools
 

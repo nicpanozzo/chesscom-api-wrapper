@@ -5,7 +5,6 @@ from .models.player.titledcategory import TitledCategory
 from .models.player.playerclub import PlayerClub
 
 from .models.player.playertournament import PlayerTournaments
-from .lazy_decorator import lazy_property
 from .playerarchive import PlayerArchive
 from .handlers.chesscomhandlers.playerhandler import PlayerHandler
 from .models.player.chessplayerstats import ChessPlayerStats

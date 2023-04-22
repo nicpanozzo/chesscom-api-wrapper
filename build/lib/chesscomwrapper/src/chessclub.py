@@ -1,4 +1,3 @@
-from app.chesscomwrapper.src.lazy_decorator import lazy_property
 from .models.player.playerclub import PlayerClub
 from .models.club.clubmember import ClubMember
 from .handlers.chesscomhandlers.clubhandler import ClubHandler
