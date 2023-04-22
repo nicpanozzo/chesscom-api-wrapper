@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-with open('app/chesscomwrapper/README.md') as f:
-    long_description = f.read()
+# with open('app/chesscomwrapper/README.md') as f:
+#     long_description = f.read()
 
 exec(open('app/chesscomwrapper/version.py').read())
 
@@ -11,7 +11,7 @@ setup(
     description='A wrapper for the chess.com API',
     package_dir={'': 'app'},
     packages=find_packages(where='app'),
-    long_description=long_description,
+    long_description="long_description",
     long_description_content_type='text/markdown',
     url='https://github.com/nicpanozzo/chesscom-api-wrapper',
     author='Nicola Panozzo',
