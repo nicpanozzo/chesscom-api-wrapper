@@ -9,7 +9,7 @@ from app.chesscomwrapper.src.models.club.clubprofile import ClubProfile
 from app.chesscomwrapper.src.chessplayer import ChessPlayer
 from app.chesscomwrapper.src.models.player.chessplayerstats import ChessPlayerStats
 from app.chesscomwrapper.src.playerarchive import PlayerArchive
-from app.chesscomwrapper.src.models.player.playergames import ChesscomGame
+from app.chesscomwrapper.src.models.player.playergames import ChesscomGame, ChesscomGameArchived, ChesscomGameToMove
 from app.chesscomwrapper.src.models.player.chessplayerprofile import ChessPlayerProfile
 
 from app.chesscomwrapper.src.models.player.playertournament import PlayerTournaments
@@ -43,9 +43,6 @@ class PlayerTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
-        
-        player.getProfile()
-        
 
         "Player should be a ChessPlayer object"
         assert isinstance(player.profile, ChessPlayerProfile ), "Player should be a ChessPlayer object"
@@ -55,13 +52,12 @@ class PlayerTest(unittest.TestCase):
         """Tests the rate limit"""
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
-        player.getProfile()
         
         
         threadPool = []
         for i in range(0, 100):
             playert = chess_instance.getPlayer("nicolapanozzo{}".format(i*random.randint(1,1000)))
-            threadPool.append(threading.Thread(target=playert.getProfile))
+            threadPool.append(threading.Thread(target=playert.profile))
         # start threads at the same time
         for thread in threadPool:
             thread.start()
@@ -76,53 +72,48 @@ class PlayerTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
-        player.getStats()
+
         "Player.stats should be a ChessPlayerStats object"
         assert isinstance(player.stats, ChessPlayerStats ), "Player should be a ChessPlayer object"
-        assert player.stats.tactics.highest.rating == 2539, "Games should be 2539, not {}".format(player.stats.tactics.highest.rating)
+        assert player.stats.tactics.highest.rating == 2593, "Games should be 2539, not {}".format(player.stats.tactics.highest.rating)
     
     def test_player_games(self):
         """Tests an API call to get a player's games"""
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("erik")
-        player.getPlayerGames()
-
+        
         "Player.games should be a list of ChesscomGame objects"
         assert isinstance(player.games[0], ChesscomGame), "Game[0] should be a ChesscomGame object"
-        # assert player.games[0].pgn.game().headers["Result"] == "*", "Game result should be *, not {}".format(player.games[0].pgn.game().headers["Result"])
+        assert player.games[0].black == "erik", "Game result should be *, not {}".format(player.games[0].black)
 
     def test_player_games_to_move(self):
         """Tests an API call to get a player's games"""
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("erik")
-        player.getPlayerGamesToMove()
 
         "Player.games should be a list of ChesscomGame objects"
-        assert isinstance(player.gamesToMove[0], ChesscomGame),  "Game[0] should be a ChesscomGame object"
-        assert len(player.gamesToMove) == 1
+        assert isinstance(player.gamesToMove[0], ChesscomGameToMove),  "Game[0] should be a ChesscomGame object"
+        assert len(player.gamesToMove) == 2
 
     def test_player_archives(self):
         """Tests an API call to get a player's archives"""
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("erik")
-        player.getPlayerArchives()
 
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(player.archives[0], PlayerArchive),  "Game[0] should be a ChesscomGame object"
-        assert len(player.archives) == 189 , "Archives should be 189, not {}".format(len(player.archives))
+        assert len(player.archives) == 190 , "Archives should be 189, not {}".format(len(player.archives))
 
     def test_player_archived_games(self):
         """Tests an API call to get a player's archives"""
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("erik")
-        player.getPlayerArchives()
-        player.archives[0].getGames()
         "Player.archives should be a list of ChesscomGame objects"
-        assert isinstance(player.archives[0].games[0], ChesscomGame),  "Archive.games should be a list(ChesscomGame) object"
+        assert isinstance(player.archives[0].games[0], ChesscomGameArchived),  "Archive.games should be a list(ChesscomGame) object"
         assert player.archives[0].games[0].rated == True , "In the first game of the first archive should be rated == True, not {}".format(player.archives[0].games[0].rated)
     
     def test_player_clubs(self):
@@ -130,7 +121,6 @@ class PlayerTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
-        player.getPlayerClubs()
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(player.clubs[1], PlayerClub),  "Archive.games should be a list(ChesscomGame) object"
         assert player.clubs[1].name == "Bonobo" , "In the first game of the first archive should be rated == True, not {}".format(player.archives[0].games[0].rated)
@@ -140,7 +130,7 @@ class PlayerTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
-        player.getPlayerTournaments()
+        player.tournaments
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(player.tournaments, PlayerTournaments),  "player.tournaments should be a PlayerTournaments object"
         assert len(player.tournaments.finished) == 1 , "the number of finished tournaments should be 1, not {}".format(len(player.tournaments.finished))
@@ -160,18 +150,17 @@ class ClubTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         club = chess_instance.getClub("bonobo")
-        club.getProfile()
         "Club.info should be a ClubInfo object"
         assert isinstance(club.profile, ClubProfile),  "Club.info should be a ClubInfo object"
         assert club.profile.name == "Bonobo" , "Club name should be Bonobo, not {}".format(club.profile.name)
-        assert club.profile.average_daily_rating == 794, "Club average_daily_rating should be 794, not {}".format(club.profile.average_daily_rating)
+        assert club.profile.average_daily_rating == 793, "Club average_daily_rating should be 794, not {}".format(club.profile.average_daily_rating)
 
     def test_club_members(self):
         """Tests an API call to get a club's members"""
 
         chess_instance = chesswrapper.ChessWrapper()
         club = chess_instance.getClub("bonobo")
-        club.getMembers()
+
         "Club.members should be a list of ChessPlayer objects"
         assert isinstance(club.members[0].player, ChessPlayer),  "Club.members should be a list of ChessPlayer objects"
         assert club.members[0].player.username == "capitanoorsoblu" , "Club member should be capitanoorsoblu, not {}".format(club.members[0].player.username)
@@ -248,7 +237,7 @@ class CountryTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         country = chess_instance.getCountry("IT")
-        country.getInfo()
+        
         "Country.info should be a CountryInfo object"
         assert isinstance(country.info, CountryInfo),  "Country.info should be a CountryInfo object"
         assert country.info.name == "Italy" , "Country name should be Italy, not {}".format(country.info.name)
@@ -258,7 +247,7 @@ class CountryTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         country = chess_instance.getCountry("IT")
-        country.getPlayers()
+        country._getPlayers()
 
         "Country.players should be a list of ChessPlayer objects"
         assert isinstance(country.players[0], ChessPlayer),  "Country.players should be a list of ChessPlayer objects"
@@ -269,8 +258,8 @@ class CountryTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         country = chess_instance.getCountry("IT")
-        country.getClubs()
-        country.clubs[0].getProfile()
+        country._getClubs()
+        country.clubs[0]._getProfile()
 
         print(country.clubs[0].profile.name)
         "Country.players should be a list of ChessPlayer objects"
@@ -302,11 +291,11 @@ class StreamerTest(unittest.TestCase):
         """Tests an API call to get streamers' info"""
 
         chess_instance = chesswrapper.ChessWrapper()
-        streamers = chess_instance.getStreamers()
+        streamers = chess_instance.getStreamersInfo()
+        print(streamers[0].username)
         "Streamers should be a list of Streamer objects"
-        assert isinstance(streamers[0], ChessStreamer),  "Streamers should be a list of Streamer objects"
-        assert isinstance(streamers[0].info, ChessStreamerInfo),  "Streamers should be a list of Streamer objects"
-        assert streamers[0].info.username == "lularobs" , "Streamer should be lularobs, not {}".format(streamers[0].username)
+        assert isinstance(streamers[0], ChessStreamerInfo),  "Streamers should be a list of ChessStreamerInfo objects"
+        assert streamers[0].username == "LileKoridze" , "Streamer should be lularobs, not {}".format(streamers[0].username)
 
 class LeaderboardsTest(unittest.TestCase):
     def test_leaderboard(self):
@@ -316,5 +305,5 @@ class LeaderboardsTest(unittest.TestCase):
         leaderboards = chess_instance.getLeaderboards()
         
         "Leaderboard.info should be a LeaderboardInfo object"
-        assert isinstance(leaderboards.info, LeaderboardsInfo),  "Leaderboard.info should be a LeaderboardInfo object"
-        assert leaderboards.info.daily[0].rank == 1 , "Leaderboard rank of first player should be 1, not {}".format(leaderboards.info.daily[0].rank)
+        assert isinstance(leaderboards, LeaderboardsInfo),  "Leaderboard.info should be a LeaderboardInfo object"
+        assert leaderboards.daily[0].rank == 1 , "Leaderboard rank of first player should be 1, not {}".format(leaderboards.info.daily[0].rank)

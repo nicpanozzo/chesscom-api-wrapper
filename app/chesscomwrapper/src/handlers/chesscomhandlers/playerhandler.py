@@ -9,7 +9,7 @@ from ...models.player.playertournament import PlayerTournaments
 from ...models.player.playerclub import PlayerClub
 from ...apimanager import API
 from ...playerarchive import PlayerArchive
-from ...models.player.playergames import ChesscomGame
+from ...models.player.playergames import ChesscomGame, ChesscomGameToMove
 from ..chesscomhandler import ChesscomHandler
 
 from ...models.player.chessplayerprofile import ChessPlayerProfile
@@ -56,7 +56,7 @@ class PlayerHandler(ChesscomHandler):
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.GAMES_TO_MOVE)
         if response is None:
             return None
-        games = list(map(lambda game: ChesscomGame(game), response.json()['games']))
+        games = list(map(lambda game: ChesscomGameToMove(game), response.json()['games']))
         return games
     
     def getPlayerArchives(self, username) -> Optional[list[PlayerArchive]]:
@@ -65,7 +65,6 @@ class PlayerHandler(ChesscomHandler):
         if response is None:
             return None
         archives = []
-        print(response.json())
         for archive in response.json()["archives"]:
             # take last element of the list
             archive = archive.split("/")

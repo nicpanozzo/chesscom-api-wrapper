@@ -1,5 +1,7 @@
 import sys
 
+from .models.streamer.chessstreamerinfo import ChessStreamerInfo
+
 from .models.player.titledcategory import TitledCategory
 
 
@@ -51,7 +53,7 @@ class ChessWrapper(object):
   
   def getTitledPlayers(self, category: TitledCategory) -> list[ChessPlayer]:
     """Returns titled players"""
-    return ChessPlayer.getTitledPlayers(self, category)
+    return ChessPlayer._getTitledPlayers(self, category)
     
   def getCountry(self, countryCode):
     """Returns a country"""
@@ -65,13 +67,13 @@ class ChessWrapper(object):
     """Returns a random puzzle"""
     return PuzzleFactory().getRandomPuzzle()
   
-  def getStreamers(self):
+  def getStreamersInfo(self) -> list[ChessStreamerInfo]:
     """Returns a list of streamers"""
-    return ChessStreamer.getStreamers(self)
+    return ChessStreamer._getStreamersInfo(self)
   
   def getLeaderboards(self):
     """Returns a list of streamers"""
-    return ChessLeaderboards().getLeaderboards(self)
+    return ChessLeaderboards().getLeaderboards()
   
 
 

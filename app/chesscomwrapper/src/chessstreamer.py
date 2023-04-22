@@ -8,7 +8,7 @@ class ChessStreamer(object):
         pass
 
     @staticmethod
-    def getStreamers(self):
+    def _getStreamersInfo(self):
         """Gets a list of streamers"""
-        return [ChessStreamer(info) for info in StreamerHandler().getStreamersInfo()]
+        return StreamerHandler().getStreamersInfo()
 

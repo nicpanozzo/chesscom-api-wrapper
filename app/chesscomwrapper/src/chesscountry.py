@@ -1,15 +1,32 @@
+from app.chesscomwrapper.src.lazy_decorator import lazy_property
 from .handlers.chesscomhandlers.countryhandler import CountryHandler
 
 
 class ChessCountry(object):
-    def __init__(self, abbr) -> None:
+    def __init__(self, abbr, lazy = True) -> None:
         self.code = abbr
-    
-    def getInfo(self) -> None:
-        self.info = CountryHandler().getInfo(self.code)
+        if lazy == False:
+            self.info
+            self.players
+            self.clubs
 
-    def getPlayers(self) -> None:
-        self.players = CountryHandler().getPlayers(self.code)
+    @lazy_property
+    def info(self):
+        return self._getInfo()
     
-    def getClubs(self) -> None:
-        self.clubs = CountryHandler().getClubs(self.code)
+    @lazy_property
+    def players(self):
+        return self._getPlayers()
+    
+    @lazy_property
+    def clubs(self):
+        return self._getClubs()
+    
+    def _getInfo(self) -> None:
+        return CountryHandler().getInfo(self.code)
+
+    def _getPlayers(self) -> None:
+        return CountryHandler().getPlayers(self.code)
+    
+    def _getClubs(self) -> None:
+        return CountryHandler().getClubs(self.code)

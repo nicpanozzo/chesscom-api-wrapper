@@ -2,7 +2,7 @@ from ...apimanager import API
 from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
-from ...models.player.playergames import ChesscomGame
+from ...models.player.playergames import ChesscomGame, ChesscomGameArchived
 
 
 class ArchiveHandler(ChesscomHandler):
@@ -19,7 +19,7 @@ class ArchiveHandler(ChesscomHandler):
         response = self.doRequest(API.PLAYER_BASE + username + "/" + API.GAMES + year + "/" + month)
         if response is None:
             return None
-        games = list(map(lambda game: ChesscomGame(game), response.json()['games']))
+        games = list(map(lambda game: ChesscomGameArchived(game), response.json()['games']))
         return games
         
     def getPGN(self, username, year, month):
@@ -30,8 +30,3 @@ class ArchiveHandler(ChesscomHandler):
         pgn = response.data
         return pgn
 
-
-
-
-  # def getPGN(self):
-  #       self.pgn = PlayerHandler().getPlayerMonthlyArchivePGN(self)
