@@ -1,5 +1,9 @@
 import sys
 
+from .models.streamer.chessstreamerinfo import ChessStreamerInfo
+
+from .models.player.titledcategory import TitledCategory
+
 
 from .chessstreamer import ChessStreamer
 
@@ -26,7 +30,7 @@ class ChessWrapper(object):
   
 
 
-  def getPlayer(self,username, lazy=True):
+  def getPlayer(self,username, lazy=True) -> ChessPlayer:
     """Returns a chess player"""
     player = ChessPlayer(username, lazy)
 
@@ -47,9 +51,9 @@ class ChessWrapper(object):
     teamMatch = TeamMatch(matchUrl)
     return teamMatch
   
-  def getTitledPlayers(self):
+  def getTitledPlayers(self, category: TitledCategory) -> list[ChessPlayer]:
     """Returns titled players"""
-    return list(map(lambda player: ChessPlayer(player), ChessPlayer.getTitledPlayers(self,"GM")))
+    return ChessPlayer._getTitledPlayers(self, category)
     
   def getCountry(self, countryCode):
     """Returns a country"""
@@ -63,11 +67,13 @@ class ChessWrapper(object):
     """Returns a random puzzle"""
     return PuzzleFactory().getRandomPuzzle()
   
-  def getStreamers(self):
+  def getStreamersInfo(self) -> list[ChessStreamerInfo]:
     """Returns a list of streamers"""
-    return ChessStreamer.getStreamers(self)
+    return ChessStreamer._getStreamersInfo(self)
   
   def getLeaderboards(self):
     """Returns a list of streamers"""
-    return ChessLeaderboards().getLeaderboards(self)
+    return ChessLeaderboards().getLeaderboards()
+  
+
 

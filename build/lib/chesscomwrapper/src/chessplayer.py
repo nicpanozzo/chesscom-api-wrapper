@@ -1,22 +1,23 @@
-from .player.playerarchive import PlayerArchive
-from .chesscomhandlers.playerhandler import PlayerHandler
-from .player.chessplayerstats import ChessPlayerStats
-from .player.chessplayerprofile import ChessPlayerProfile
-from .player.playergames import ChesscomGame
+from typing import Optional
+
+from .models.player.titledcategory import TitledCategory
+
+from .models.player.playerclub import PlayerClub
+
+from .models.player.playertournament import PlayerTournaments
+from .lazy_decorator import lazy_property
+from .playerarchive import PlayerArchive
+from .handlers.chesscomhandlers.playerhandler import PlayerHandler
+from .models.player.chessplayerstats import ChessPlayerStats
+from .models.player.chessplayerprofile import ChessPlayerProfile
+from .models.player.playergames import ChesscomGame, ChesscomGameToMove
 # from chesswrapper.chessplayerstats import ChessPlayerStats
 # from chessplayerprofile import ChessPlayerProfile
+import functools
 
 
     
-def lazy_property(fn):
-    attr_name = '_lazy_' + fn.__name__
 
-    @property
-    def _lazy_property(self):
-        if not hasattr(self, attr_name):
-            setattr(self, attr_name, fn(self))
-        return getattr(self, attr_name)
-    return _lazy_property
 
 class ChessPlayer(object):
   """A class to represent a chess.com player"""
@@ -32,71 +33,71 @@ class ChessPlayer(object):
       self.gamesToMove
       self.tournaments
       self.clubs
-    
-    
-    
-    
-    
     pass
+  
 
-  @lazy_property
+  @functools.cached_property
   def profile(self):
-    return self.getProfile()
+    return self._getProfile()
 
-  @lazy_property
+  @functools.cached_property
   def stats(self):
-    return self.getStats()
+    return self._getStats()
 
-  @lazy_property
+  @functools.cached_property
   def games(self):
-    return self.getPlayerGames()
+    return self._getPlayerGames()
 
-  @lazy_property
+  @functools.cached_property
   def gamesToMove(self):
-    return self.getPlayerGamesToMove()
+    return self._getPlayerGamesToMove()
 
-  @lazy_property
+  @functools.cached_property
   def tournaments(self):
-    return self.getPlayerTournaments()
+    return self._getPlayerTournaments()
 
-  @lazy_property
+  @functools.cached_property
   def clubs(self):
-    return self.getPlayerClubs() 
+    return self._getPlayerClubs() 
 
+  @functools.cached_property
+  def archives(self):
+    return self._getPlayerArchives() 
 
   
 
-  def getProfile(self):
+  def _getProfile(self) -> Optional[ChessPlayerProfile]:
     """Returns a dictionary of a player's profile"""
     
     return PlayerHandler().getPlayerProfile(self.username)
     
   
-  def getStats(self):
+  def _getStats(self) -> Optional[ChessPlayerStats]:
     """Returns player's stats"""
     return PlayerHandler().getPlayerStats(self.username)
     
-  def getPlayerGames(self):
+  def _getPlayerGames(self) -> Optional[list[ChesscomGame]]:
     """Returns player's games"""
     return PlayerHandler().getPlayerGames(self.username)
 
-  def getPlayerGamesToMove(self):
+  def _getPlayerGamesToMove(self) -> Optional[list[ChesscomGameToMove]]:
     """Returns player's games"""
     return PlayerHandler().getPlayerGamesToMove(self.username)
   
-  def getPlayerArchives(self):
+  def _getPlayerArchives(self) -> Optional[list[PlayerArchive]]:
     """Returns player's archives"""
     return PlayerHandler().getPlayerArchives(self.username)
   
-  def getPlayerTournaments(self):
+  def _getPlayerTournaments(self) -> Optional[PlayerTournaments]:
     """Returns player's tournaments"""
     return PlayerHandler().getPlayerTournaments(self.username)
 
-  def getPlayerClubs(self):
+  def _getPlayerClubs(self) -> Optional[list[PlayerClub]]:
     """Returns player's clubs"""
     return PlayerHandler().getPlayerClubs(self.username)
   
   @staticmethod
-  def getTitledPlayers(self, category):
+  def _getTitledPlayers(self, category: TitledCategory):
     """Returns titled players"""
-    return PlayerHandler().getTitledPlayers(category)
+
+    return list(map(lambda player: ChessPlayer(player),PlayerHandler().getTitledPlayers(category)))

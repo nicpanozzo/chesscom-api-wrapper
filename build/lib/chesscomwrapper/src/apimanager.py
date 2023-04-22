@@ -1,5 +1,3 @@
-
-
 class API():
     """A class to manage API calls"""
     # PLAYER API (PLAYER_BASE + username (+ ?))

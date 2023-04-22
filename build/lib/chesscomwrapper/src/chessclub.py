@@ -1,18 +1,37 @@
-from .player.playerclub import PlayerClub
-from .club.clubmember import ClubMember
-from .chesscomhandlers.clubhandler import ClubHandler
+from app.chesscomwrapper.src.lazy_decorator import lazy_property
+from .models.player.playerclub import PlayerClub
+from .models.club.clubmember import ClubMember
+from .handlers.chesscomhandlers.clubhandler import ClubHandler
+import functools
 
 
 class Club(object):
-    def __init__(self, clubname: str) -> None:
+    def __init__(self, clubname: str, lazy = True) -> None:
         self.id = clubname
-    
-    def __init__(self, playerclub: PlayerClub) -> None:
-        self.id = playerclub
+        if lazy == False:
+            self.profile
+            self.members
 
-    def getMembers(self) -> list[ClubMember]:
-        self.members = ClubHandler().getMembers(self.id)
+    def __init__(self, playerclub: PlayerClub, lazy = True) -> None:
+        self.id = playerclub
+        if lazy == False:
+            self.profile
+            self.members
+        
+
+
+    @functools.cached_property
+    def profile(self):
+        return self._getProfile()
     
-    def getProfile(self):
-        self.profile = ClubHandler().getProfile(self.id)
+    @functools.cached_property
+    def members(self):
+        return self._getMembers()
+    
+    
+    def _getMembers(self) -> list[ClubMember]:
+        return ClubHandler().getMembers(self.id)
+    
+    def _getProfile(self):
+        return ClubHandler().getProfile(self.id)
 

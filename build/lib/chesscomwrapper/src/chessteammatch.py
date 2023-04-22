@@ -1,4 +1,4 @@
-from .chesscomhandlers.teammatchhandler import TeamMatchHandler
+from .handlers.chesscomhandlers.teammatchhandler import TeamMatchHandler
 
 
 class TeamMatch(object):

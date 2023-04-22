@@ -1,6 +1,4 @@
-import datetime
-
-from .chesscomhandlers.dailypuzzlehandler import PuzzleHandler, PuzzleInfo
+from .handlers.chesscomhandlers.dailypuzzlehandler import PuzzleHandler, PuzzleInfo
 
 
 class PuzzleFactory(object):
