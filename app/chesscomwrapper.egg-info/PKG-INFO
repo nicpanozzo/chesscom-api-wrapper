@@ -12,3 +12,5 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 Provides-Extra: dev
 License-File: LICENSE.txt
+
+Looong documentation about this chess.com wrapper. It's a bit outdated, but still useful.

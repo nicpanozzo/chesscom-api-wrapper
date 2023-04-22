@@ -10,5 +10,4 @@ class ChessLeaderboards(object):
     @staticmethod
     def getLeaderboards(self) -> LeaderboardsInfo:
         """Gets all the leaderboards from Chess.com"""
-        print("YEES")
         return LeaderboardsHandler().getLeaderboards()

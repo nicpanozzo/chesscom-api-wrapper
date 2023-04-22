@@ -26,9 +26,9 @@ class ChessWrapper(object):
   
 
 
-  def getPlayer(self,username):
+  def getPlayer(self,username, lazy=True):
     """Returns a chess player"""
-    player = ChessPlayer(username)
+    player = ChessPlayer(username, lazy)
 
     return player
   
@@ -69,6 +69,5 @@ class ChessWrapper(object):
   
   def getLeaderboards(self):
     """Returns a list of streamers"""
-    print("getting leaderboards")
     return ChessLeaderboards().getLeaderboards(self)
 

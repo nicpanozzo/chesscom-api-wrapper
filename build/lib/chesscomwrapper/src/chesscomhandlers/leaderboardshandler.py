@@ -15,7 +15,6 @@ class LeaderboardsHandler(ChesscomHandler):
     def getLeaderboards(self):
         """Returns a leaderboardsInfo object"""
         response = self.doRequest(API.BASE_URL + API.LEADERBOARDS)
-        print("Response: " + str(response))
         if response is None:
             return None
         

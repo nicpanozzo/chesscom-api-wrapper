@@ -3,6 +3,7 @@ class LeaderboardsInfo(object):
     def __init__(self, data):
         """Initializes a LeaderboardsInfo object"""
         self.json = data
+        # print(data)
         self.daily = [LeaderboardInfo(info) for info in data['daily']]
         self.daily960 = [LeaderboardInfo(info) for info in data['daily960']]
         self.live_rapid = [LeaderboardInfo(info) for info in data['live_rapid']]
@@ -25,7 +26,6 @@ class TrendScore(object):
     """A class to represent a trendScore object"""
     def __init__(self, data) -> None:
         """Initializes a TrendScore object"""
-        print("data: " + str(data))
         if data is None:
             return None
         self.direction = data.get('direction', None)

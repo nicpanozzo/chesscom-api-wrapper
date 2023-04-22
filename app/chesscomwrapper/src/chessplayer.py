@@ -6,49 +6,95 @@ from .player.playergames import ChesscomGame
 # from chesswrapper.chessplayerstats import ChessPlayerStats
 # from chessplayerprofile import ChessPlayerProfile
 
+
+    
+def lazy_property(fn):
+    attr_name = '_lazy_' + fn.__name__
+
+    @property
+    def _lazy_property(self):
+        if not hasattr(self, attr_name):
+            setattr(self, attr_name, fn(self))
+        return getattr(self, attr_name)
+    return _lazy_property
+
 class ChessPlayer(object):
   """A class to represent a chess.com player"""
 
-  
-
-  def __init__(self, username):
+  def __init__(self, username, lazy=True):
     """Initializes a ChessPlayer object"""
     
     self.username = username
-    # self.getProfile()
-    # self.getStats()
-    # self.getPlayerGames()
+    if lazy == False:
+      self.profile
+      self.stats
+      self.games
+      self.gamesToMove
+      self.tournaments
+      self.clubs
+    
+    
+    
+    
+    
     pass
+
+  @lazy_property
+  def profile(self):
+    return self.getProfile()
+
+  @lazy_property
+  def stats(self):
+    return self.getStats()
+
+  @lazy_property
+  def games(self):
+    return self.getPlayerGames()
+
+  @lazy_property
+  def gamesToMove(self):
+    return self.getPlayerGamesToMove()
+
+  @lazy_property
+  def tournaments(self):
+    return self.getPlayerTournaments()
+
+  @lazy_property
+  def clubs(self):
+    return self.getPlayerClubs() 
+
+
+  
 
   def getProfile(self):
     """Returns a dictionary of a player's profile"""
     
-    self.profile = PlayerHandler().getPlayerProfile(self.username)
+    return PlayerHandler().getPlayerProfile(self.username)
     
   
   def getStats(self):
     """Returns player's stats"""
-    self.stats = PlayerHandler().getPlayerStats(self.username)
+    return PlayerHandler().getPlayerStats(self.username)
     
   def getPlayerGames(self):
     """Returns player's games"""
-    self.games = PlayerHandler().getPlayerGames(self.username)
+    return PlayerHandler().getPlayerGames(self.username)
 
   def getPlayerGamesToMove(self):
     """Returns player's games"""
-    self.gamesToMove = PlayerHandler().getPlayerGamesToMove(self.username)
+    return PlayerHandler().getPlayerGamesToMove(self.username)
   
   def getPlayerArchives(self):
     """Returns player's archives"""
-    self.archives: list[PlayerArchive] = PlayerHandler().getPlayerArchives(self.username)
+    return PlayerHandler().getPlayerArchives(self.username)
   
   def getPlayerTournaments(self):
     """Returns player's tournaments"""
-    self.tournaments = PlayerHandler().getPlayerTournaments(self.username)
+    return PlayerHandler().getPlayerTournaments(self.username)
 
   def getPlayerClubs(self):
     """Returns player's clubs"""
-    self.clubs = PlayerHandler().getPlayerClubs(self.username)
+    return PlayerHandler().getPlayerClubs(self.username)
   
   @staticmethod
   def getTitledPlayers(self, category):

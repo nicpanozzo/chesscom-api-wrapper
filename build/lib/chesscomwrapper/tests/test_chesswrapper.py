@@ -315,5 +315,14 @@ class LeaderboardsTest(unittest.TestCase):
         leaderboards = chess_instance.getLeaderboards()
         
         "Leaderboard.info should be a LeaderboardInfo object"
-        assert isinstance(leaderboards.info, LeaderboardsInfo),  "Leaderboard.info should be a LeaderboardInfo object"
-        assert leaderboards.info.daily[0].rank == 1 , "Leaderboard rank of first player should be 1, not {}".format(leaderboards.info.daily[0].rank)
+        assert isinstance(leaderboards, LeaderboardsInfo),  "Leaderboard.info should be a LeaderboardInfo object"
+        assert leaderboards.daily[0].rank == 1 , "Leaderboard rank of first player should be 1, not {}".format(leaderboards.daily[0].rank)
+
+class RunTest(unittest.TestCase):
+    def test_run(self):
+        """Tests an API call to get a club's info"""
+
+        nic = ChessWrapper().getPlayer("nicolapanozzo")
+
+        print(nic.profile.name)
+        print(nic.profile.name)

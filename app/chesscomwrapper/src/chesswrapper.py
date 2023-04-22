@@ -26,9 +26,9 @@ class ChessWrapper(object):
   
 
 
-  def getPlayer(self,username):
+  def getPlayer(self,username, lazy=True):
     """Returns a chess player"""
-    player = ChessPlayer(username)
+    player = ChessPlayer(username, lazy)
 
     return player
   
