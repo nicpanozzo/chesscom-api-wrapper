@@ -21,8 +21,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3'
         ],
-    install_requires=['requests',
-                      'functools'],
+    install_requires=['requests'],
     extras_require={
         'dev': [
             'pytest>=3.7',
