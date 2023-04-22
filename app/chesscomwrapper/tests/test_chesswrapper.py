@@ -5,36 +5,36 @@ import threading
 
 
 from ..src.chessclub import Club
-from ..src.club.clubprofile import ClubProfile
+from ..src.models.club.clubprofile import ClubProfile
 from ..src.chessplayer import ChessPlayer
-from ..src.player.chessplayerstats import ChessPlayerStats
-from ..src.player.playerarchive import PlayerArchive
-from ..src.player.playergames import ChesscomGame
-from ..src.player.chessplayerprofile import ChessPlayerProfile
+from ..src.models.player.chessplayerstats import ChessPlayerStats
+from ..src.playerarchive import PlayerArchive
+from ..src.models.player.playergames import ChesscomGame
+from ..src.models.player.chessplayerprofile import ChessPlayerProfile
 
-from ..src.player.playertournament import PlayerTournaments
-from ..src.player.playerclub import PlayerClub
+from ..src.models.player.playertournament import PlayerTournaments
+from ..src.models.player.playerclub import PlayerClub
 
 from ..src.chesswrapper import ChessWrapper 
 import unittest
 
 
-from ..src.tournament.tournamentinfo import TournamentInfo
-from ..src.tournament.tournamnetroundinfo import TournamentRoundInfo
-from ..src.tournament.tournamentroundgroup import TournamentRoundGroup
-from ..src.tournament.tournamentroundgroupinfo import TournamentRoundGroupInfo
+from ..src.models.tournament.tournamentinfo import TournamentInfo
+from ..src.models.tournament.tournamnetroundinfo import TournamentRoundInfo
+from ..src.tournamentroundgroup import TournamentRoundGroup
+from ..src.models.tournament.tournamentroundgroupinfo import TournamentRoundGroupInfo
 
-from ..src.teammatch.teammatchinfo import TeamMatchInfo
-from ..src.teammatch.teammatchboardinfo import TeamMatchBoardInfo
+from ..src.models.teammatch.teammatchinfo import TeamMatchInfo
+from ..src.models.teammatch.teammatchboardinfo import TeamMatchBoardInfo
 
-from ..src.country.countryinfo import CountryInfo
+from ..src.models.country.countryinfo import CountryInfo
 
-from ..src.chesscomhandlers.dailypuzzlehandler import PuzzleInfo
+from ..src.models.puzzle.puzzleinfo import PuzzleInfo
 
 from ..src.chessstreamer import ChessStreamer
-from ..src.streamer.chessstreamerinfo import ChessStreamerInfo
+from ..src.models.streamer.chessstreamerinfo import ChessStreamerInfo
 
-from ..src.leaderboards.leaderboardsinfo import LeaderboardsInfo
+from ..src.models.leaderboards.leaderboardsinfo import LeaderboardsInfo
 
 class PlayerTest(unittest.TestCase):
     def test_player_profile(self):
