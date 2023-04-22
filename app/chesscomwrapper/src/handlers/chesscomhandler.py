@@ -1,8 +1,6 @@
 from .requesthandler import RequestHandler
 from .errorhandler import ErrorHandler, MovedPermanentlyError, CacheError, MalformedUrlError, DataNotAvailableError, RateLimitError, OtherError
-from .errorhandlers.noneerrorhandler import NoneErrorHandler
-from .errorhandlers.raisererrorhandler import RaiserErrorHandler
-from .requesthandlers.singletonrequesthandler import SingletonRequestHandler
+
 class ChesscomHandler(object):
     """ Interface for RequestHandler """
     

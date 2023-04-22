@@ -1,4 +1,4 @@
-from ..chessplayer import ChessPlayer
+from ...chessplayer import ChessPlayer
 
 
 class ClubMember(object):

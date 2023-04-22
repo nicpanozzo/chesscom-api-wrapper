@@ -1,4 +1,4 @@
-from .chesscomhandlers.countryhandler import CountryHandler
+from .handlers.chesscomhandlers.countryhandler import CountryHandler
 
 
 class ChessCountry(object):

@@ -1,4 +1,4 @@
-from ..chesscomhandlers.roundinfohandler import RoundInfoHandler
+from .handlers.chesscomhandlers.roundinfohandler import RoundInfoHandler
 
 
 class TournamentRoundGroup(object):

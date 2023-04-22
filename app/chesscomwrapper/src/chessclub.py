@@ -1,6 +1,6 @@
-from .player.playerclub import PlayerClub
-from .club.clubmember import ClubMember
-from .chesscomhandlers.clubhandler import ClubHandler
+from .models.player.playerclub import PlayerClub
+from .models.club.clubmember import ClubMember
+from .handlers.chesscomhandlers.clubhandler import ClubHandler
 
 
 class Club(object):

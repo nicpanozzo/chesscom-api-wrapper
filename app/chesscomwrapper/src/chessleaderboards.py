@@ -1,5 +1,5 @@
-from .chesscomhandlers.leaderboardshandler import LeaderboardsHandler
-from .leaderboards.leaderboardsinfo import LeaderboardsInfo
+from .handlers.chesscomhandlers.leaderboardshandler import LeaderboardsHandler
+from .models.leaderboards.leaderboardsinfo import LeaderboardsInfo
 
 
 class ChessLeaderboards(object):

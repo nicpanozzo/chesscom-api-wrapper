@@ -1,14 +1,16 @@
 # from src.player.playerarchive import PlayerArchive
 # from src.chessplayer import ChessPlayer
-from ..player.playertournament import PlayerTournaments
-from ..player.playerclub import PlayerClub
-from ..apimanager import API
-from ..player.playerarchive import PlayerArchive
-from ..player.playergames import ChesscomGame
-from ..chesscomhandler import ChesscomHandler, NoneErrorHandler, SingletonRequestHandler
+from ..errorhandlers.noneerrorhandler import NoneErrorHandler
+from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
+from ...models.player.playertournament import PlayerTournaments
+from ...models.player.playerclub import PlayerClub
+from ...apimanager import API
+from ...playerarchive import PlayerArchive
+from ...models.player.playergames import ChesscomGame
+from ..chesscomhandler import ChesscomHandler
 
-from ..player.chessplayerprofile import ChessPlayerProfile
-from ..player.chessplayerstats import ChessPlayerStats
+from ...models.player.chessplayerprofile import ChessPlayerProfile
+from ...models.player.chessplayerstats import ChessPlayerStats
 
 
 class PlayerHandler(ChesscomHandler):

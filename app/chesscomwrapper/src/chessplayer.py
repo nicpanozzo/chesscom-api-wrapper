@@ -1,8 +1,8 @@
-from .player.playerarchive import PlayerArchive
-from .chesscomhandlers.playerhandler import PlayerHandler
-from .player.chessplayerstats import ChessPlayerStats
-from .player.chessplayerprofile import ChessPlayerProfile
-from .player.playergames import ChesscomGame
+from .playerarchive import PlayerArchive
+from .handlers.chesscomhandlers.playerhandler import PlayerHandler
+from .models.player.chessplayerstats import ChessPlayerStats
+from .models.player.chessplayerprofile import ChessPlayerProfile
+from .models.player.playergames import ChesscomGame
 # from chesswrapper.chessplayerstats import ChessPlayerStats
 # from chessplayerprofile import ChessPlayerProfile
 

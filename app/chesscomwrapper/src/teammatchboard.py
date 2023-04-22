@@ -1,4 +1,4 @@
-from ..chesscomhandlers.teammatchboardhandler import TeamMatchBoardHandler
+from .handlers.chesscomhandlers.teammatchboardhandler import TeamMatchBoardHandler
 
 
 class TeamMatchBoard(object):

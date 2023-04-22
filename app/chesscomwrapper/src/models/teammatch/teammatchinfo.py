@@ -1,4 +1,4 @@
-from ..teammatch.teammatchboard import TeamMatchBoard
+from ...teammatchboard import TeamMatchBoard
 
 
 class TeamMatchInfo(object):

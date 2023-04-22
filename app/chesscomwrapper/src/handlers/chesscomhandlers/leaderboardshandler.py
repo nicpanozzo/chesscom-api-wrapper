@@ -1,5 +1,5 @@
-from ..leaderboards.leaderboardsinfo import LeaderboardsInfo
-from ..apimanager import API
+from ...models.leaderboards.leaderboardsinfo import LeaderboardsInfo
+from ...apimanager import API
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ..chesscomhandler import ChesscomHandler

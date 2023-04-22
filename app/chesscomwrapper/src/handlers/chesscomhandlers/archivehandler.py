@@ -1,6 +1,8 @@
-from ..apimanager import API
-from ..chesscomhandler import ChesscomHandler, NoneErrorHandler, SingletonRequestHandler
-from ..player.playergames import ChesscomGame
+from ...apimanager import API
+from ..chesscomhandler import ChesscomHandler
+from ..errorhandlers.noneerrorhandler import NoneErrorHandler
+from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
+from ...models.player.playergames import ChesscomGame
 
 
 class ArchiveHandler(ChesscomHandler):

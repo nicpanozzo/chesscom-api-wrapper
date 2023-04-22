@@ -1,7 +1,7 @@
 from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
-from ..teammatch.teammatchboardinfo import TeamMatchBoardInfo
+from ...models.teammatch.teammatchboardinfo import TeamMatchBoardInfo
 
 
 class TeamMatchBoardHandler(ChesscomHandler):

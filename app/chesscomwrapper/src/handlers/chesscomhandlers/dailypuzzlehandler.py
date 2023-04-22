@@ -1,4 +1,5 @@
-from ..apimanager import API
+from ...models.puzzle.puzzleinfo import PuzzleInfo
+from ...apimanager import API
 from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
@@ -25,13 +26,3 @@ class PuzzleHandler(ChesscomHandler):
             return None
         puzzleInfo = PuzzleInfo(response.json())
         return puzzleInfo
-    
-
-class PuzzleInfo(object):
-    def __init__(self, data):
-        self.title = data.get("title", None)
-        self.url = data.get("url", None)
-        self.publishTime = data.get("publish_time", None)
-        self.fen = data.get("fen", None)
-        self.pgn = data.get("pgn", None)
-        self.image = data.get("image", None)

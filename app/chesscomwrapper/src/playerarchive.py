@@ -1,9 +1,4 @@
-# from src.chesscomhandlers.playerhandler import PlayerHandler
-
-# from src.chesscomhandlers.playerhandler import PlayerHandler
-
-
-from ..chesscomhandlers.archivehandler import ArchiveHandler
+from .handlers.chesscomhandlers.archivehandler import ArchiveHandler
 
 
 class PlayerArchive(object):

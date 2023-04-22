@@ -1,12 +1,10 @@
-
-from ..apimanager import API
-from ..streamer.chessstreamerinfo import ChessStreamerInfo
 from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
+from ...models.teammatch.teammatchinfo import TeamMatchInfo
 
 
-class StreamerHandler(ChesscomHandler):
+class TeamMatchHandler(ChesscomHandler):
     
     def __init__(self):
         """Initializes a RoundHandler object"""
@@ -15,10 +13,10 @@ class StreamerHandler(ChesscomHandler):
         pass
 
 
-    def getStreamersInfo(self):
+    def getInfo(self, url):
         """Returns player's monthly archives"""
-        response = self.doRequest(API.BASE_URL + API.STREAMERS)
+        response = self.doRequest(url)
         if response is None:
             return None
-        streamers =  list(map(lambda streamer: ChessStreamerInfo(streamer), response.json()['streamers']))
-        return streamers
+        roundinfo = TeamMatchInfo(response.json())
+        return roundinfo

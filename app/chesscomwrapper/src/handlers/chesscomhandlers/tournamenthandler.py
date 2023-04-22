@@ -1,9 +1,7 @@
-# from src.player.playerclub import ClubMember, PlayerClub
-
-from ..tournament.tournamnetroundinfo import TournamentRoundInfo
-from ..apimanager import API
+from ...models.tournament.tournamnetroundinfo import TournamentRoundInfo
+from ...apimanager import API
 from ..chesscomhandler import ChesscomHandler, NoneErrorHandler, SingletonRequestHandler
-from ..tournament.tournamentinfo import TournamentInfo
+from ...models.tournament.tournamentinfo import TournamentInfo
 
 
 class TournamentHandler(ChesscomHandler):

@@ -1,6 +1,6 @@
 from ..tournament.tournamentsettings import TournamentSettings
 from ..tournament.tournamentplayer import TournamentPlayer
-from ..tournament.tournamentround import TournamentRound
+from ...tournamentround import TournamentRound
 
 
 class TournamentInfo(object):

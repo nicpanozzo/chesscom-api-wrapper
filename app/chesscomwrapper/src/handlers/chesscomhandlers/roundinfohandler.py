@@ -1,10 +1,10 @@
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ..chesscomhandler import ChesscomHandler
-from ..tournament.tournamnetroundinfo import TournamentRoundInfo
+from ...models.tournament.tournamentroundgroupinfo import TournamentRoundGroupInfo
 
 
-class RoundHandler(ChesscomHandler):
+class RoundInfoHandler(ChesscomHandler):
     
     def __init__(self):
         """Initializes a RoundHandler object"""
@@ -13,12 +13,10 @@ class RoundHandler(ChesscomHandler):
         pass
 
 
-    def getInfo(self, url):
+    def getRoundGroupInfo(self, url):
         """Returns player's monthly archives"""
         response = self.doRequest(url)
         if response is None:
             return None
-        roundinfo = TournamentRoundInfo(response.json())
+        roundinfo = TournamentRoundGroupInfo(response.json())
         return roundinfo
-
-    

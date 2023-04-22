@@ -1,9 +1,3 @@
-# from src.chessplayer import ChessPlayer
-# from src.chessclub import Club
-
-
-
-
 class PlayerClub(object):
     
     

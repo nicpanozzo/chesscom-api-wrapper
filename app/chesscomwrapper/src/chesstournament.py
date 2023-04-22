@@ -1,4 +1,4 @@
-from .chesscomhandlers.tournamenthandler import TournamentHandler
+from .handlers.chesscomhandlers.tournamenthandler import TournamentHandler
 
 
 class Tournament(object):
