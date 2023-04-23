@@ -41,7 +41,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_profile(self):
         """Tests an API call to get a player's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
 
         "Player should be a ChessPlayer object"
@@ -50,7 +50,7 @@ class PlayerTest(unittest.TestCase):
     
     def test_rate_limit(self):
         """Tests the rate limit"""
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
         
         
@@ -70,7 +70,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_stats(self):
         """Tests an API call to get a player's stats"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
 
         "Player.stats should be a ChessPlayerStats object"
@@ -80,7 +80,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_games(self):
         """Tests an API call to get a player's games"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("erik")
         
         "Player.games should be a list of ChesscomGame objects"
@@ -90,7 +90,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_games_to_move(self):
         """Tests an API call to get a player's games"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("erik")
 
         "Player.games should be a list of ChesscomGame objects"
@@ -100,7 +100,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_archives(self):
         """Tests an API call to get a player's archives"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("erik")
 
         "Player.archives should be a list of ChesscomGame objects"
@@ -110,7 +110,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_archived_games(self):
         """Tests an API call to get a player's archives"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("erik")
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(player.archives[0].games[0], ChesscomGameArchived),  "Archive.games should be a list(ChesscomGame) object"
@@ -119,7 +119,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_clubs(self):
         """Tests an API call to get a player's clubs"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(player.clubs[1], PlayerClub),  "Archive.games should be a list(ChesscomGame) object"
@@ -128,7 +128,7 @@ class PlayerTest(unittest.TestCase):
     def test_player_tournaments(self):
         """Tests an API call to get a player's tournaments"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         player = chess_instance.getPlayer("nicolapanozzo")
         player.tournaments
         "Player.archives should be a list of ChesscomGame objects"
@@ -138,7 +138,7 @@ class PlayerTest(unittest.TestCase):
     def test_titled_players(self):
         """Tests an API call to get all the titled players"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         titled_players = chess_instance.getTitledPlayers(chesswrapper.TitledCategory.GM)
         "Player.archives should be a list of ChesscomGame objects"
         assert isinstance(titled_players[0], ChessPlayer),  "Archive.games should be a list(ChesscomGame) object"
@@ -148,7 +148,7 @@ class ClubTest(unittest.TestCase):
     def test_club_info(self):
         """Tests an API call to get a club's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         club = chess_instance.getClub("bonobo")
         "Club.info should be a ClubInfo object"
         assert isinstance(club.profile, ClubProfile),  "Club.info should be a ClubInfo object"
@@ -158,7 +158,7 @@ class ClubTest(unittest.TestCase):
     def test_club_members(self):
         """Tests an API call to get a club's members"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         club = chess_instance.getClub("bonobo")
 
         "Club.members should be a list of ChessPlayer objects"
@@ -171,7 +171,7 @@ class TournamentTest(unittest.TestCase):
     def test_tournament_info(self):
         """Tests an API call to get a tournament's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
         print(tournament.info)
         "Club.info should be a ClubInfo object"
@@ -181,7 +181,7 @@ class TournamentTest(unittest.TestCase):
 
     def test_tournament_round_info(self):
         # """Tests an API call to get a tournament's round info"""
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
 
         print(tournament.info.rounds)
@@ -194,7 +194,7 @@ class TournamentTest(unittest.TestCase):
 
     def test_tournament_round_group(self):
         # """Tests an API call to get a tournament's round group info"""
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
 
         print(tournament.info)
@@ -208,7 +208,7 @@ class TeamMatchTest(unittest.TestCase):
     def test_team_match_info(self):
         """Tests an API call to get a team match's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         team_match = chess_instance.getTeamMatch("https://api.chess.com/pub/match/53")
         "TeamMatch.info should be a TeamMatchInfo object"
         assert isinstance(team_match.info, TeamMatchInfo),  "TeamMatch.info should be a TeamMatchInfo object"
@@ -218,7 +218,7 @@ class TeamMatchTest(unittest.TestCase):
     def test_team_match_board_info(self):
         """Tests an API call to get a team match's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         team_match = chess_instance.getTeamMatch("https://api.chess.com/pub/match/53")
         
         assert isinstance(team_match.info.boards[0].info, TeamMatchBoardInfo),  "TeamMatch.info.boards[0].info should be a TeamMatchBoardInfo object"
@@ -228,7 +228,7 @@ class CountryTest(unittest.TestCase):
     def test_country_info(self):
         """Tests an API call to get a country's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         country = chess_instance.getCountry("IT")
         
         "Country.info should be a CountryInfo object"
@@ -238,7 +238,7 @@ class CountryTest(unittest.TestCase):
     def test_country_players(self):
         """Tests an API call to get a country's players"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         country = chess_instance.getCountry("IT")
         country._getPlayers()
 
@@ -249,7 +249,7 @@ class CountryTest(unittest.TestCase):
     def test_country_clubs(self):
         """Tests an API call to get a country's players"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         country = chess_instance.getCountry("IT")
 
         print(country.clubs[0].profile.name)
@@ -261,7 +261,7 @@ class PuzzleTest(unittest.TestCase):
     def test_daily_puzzle(self):
         """Tests an API call to get a puzzle's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         puzzle = chess_instance.getDailyPuzzle()
         "Puzzle.info should be a PuzzleInfo object"
         assert isinstance(puzzle.info, PuzzleInfo),  "Puzzle.info should be a PuzzleInfo object"
@@ -270,7 +270,7 @@ class PuzzleTest(unittest.TestCase):
     def test_random_puzzle(self):
         """Tests an API call to get a puzzle's info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         puzzle = chess_instance.getRandomPuzzle()
         print(puzzle.info.title)
         "Puzzle.info should be a PuzzleInfo object"
@@ -281,7 +281,7 @@ class StreamerTest(unittest.TestCase):
     def test_streamers(self):
         """Tests an API call to get streamers' info"""
 
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         streamers = chess_instance.getStreamersInfo()
         print(streamers[0].username)
         "Streamers should be a list of Streamer objects"
@@ -292,7 +292,7 @@ class LeaderboardsTest(unittest.TestCase):
     def test_leaderboard(self):
         """Tests an API call to get a leaderboard's info"""
             
-        chess_instance = chesswrapper.ChessWrapper()
+        chess_instance = chesswrapper.ChesscomWrapper()
         leaderboards = chess_instance.getLeaderboards()
         
         "Leaderboard.info should be a LeaderboardInfo object"
