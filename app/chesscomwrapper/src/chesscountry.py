@@ -1,3 +1,5 @@
+from typing import Optional
+from .chessclub import Club
 from .handlers.chesscomhandlers.countryhandler import CountryHandler
 import functools
 
@@ -28,5 +30,5 @@ class ChessCountry(object):
     def _getPlayers(self) -> None:
         return CountryHandler().getPlayers(self.code)
     
-    def _getClubs(self) -> None:
+    def _getClubs(self) -> Optional[list[Club]]:
         return CountryHandler().getClubs(self.code)

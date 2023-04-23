@@ -173,7 +173,7 @@ class TournamentTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
-        tournament.getInfo()
+        print(tournament.info)
         "Club.info should be a ClubInfo object"
         assert isinstance(tournament.info, TournamentInfo),  "Tournament.info should be a TournamentInfo object"
         assert tournament.info.creator == "Patzer24" , "Tournament creator should be Patzer24, not {}".format(tournament.info.creator)
@@ -183,9 +183,9 @@ class TournamentTest(unittest.TestCase):
         # """Tests an API call to get a tournament's round info"""
         chess_instance = chesswrapper.ChessWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
-        tournament.getInfo()
+
         print(tournament.info.rounds)
-        tournament.info.rounds[0].getInfo()
+
         print(tournament.info.rounds[0].info)
         assert isinstance(tournament.info.rounds[0].info, TournamentRoundInfo),  "Round.info should be a TournamentRoundInfo object"
         assert len(tournament.info.rounds[0].info.groups) == 67, "Tournament groups number should be 67, not {}".format(len(tournament.info.rounds[0].info.groups))
@@ -196,12 +196,8 @@ class TournamentTest(unittest.TestCase):
         # """Tests an API call to get a tournament's round group info"""
         chess_instance = chesswrapper.ChessWrapper()
         tournament = chess_instance.getTournament("https://api.chess.com/pub/tournament/-33rd-chesscom-quick-knockouts-1401-1600")
-        tournament.getInfo()
-        print(tournament.info.rounds)
-        tournament.info.rounds[0].getInfo()
-        # print(tournament.info.rounds[0].info.groupsUrls)
-        tournament.info.rounds[0].info.groups[0].getInfo()
-        
+
+        print(tournament.info)
 
         assert isinstance(tournament.info.rounds[0].info, TournamentRoundInfo),  "Round.info should be a TournamentRoundInfo object"
         assert isinstance(tournament.info.rounds[0].info.groups[0], TournamentRoundGroup),  "Round.info.groups[0] should be a TournamentRoundGroup object"
@@ -214,7 +210,6 @@ class TeamMatchTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         team_match = chess_instance.getTeamMatch("https://api.chess.com/pub/match/53")
-        team_match.getInfo()
         "TeamMatch.info should be a TeamMatchInfo object"
         assert isinstance(team_match.info, TeamMatchInfo),  "TeamMatch.info should be a TeamMatchInfo object"
         assert team_match.info.teams.team1.name == "International Flagbearers" , "TeamMatch team1 should be International Flagbearers, not {}".format(team_match.info.teams.team1.name)
@@ -225,8 +220,6 @@ class TeamMatchTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         team_match = chess_instance.getTeamMatch("https://api.chess.com/pub/match/53")
-        team_match.getInfo()
-        team_match.info.boards[0].getInfo()
         
         assert isinstance(team_match.info.boards[0].info, TeamMatchBoardInfo),  "TeamMatch.info.boards[0].info should be a TeamMatchBoardInfo object"
         assert team_match.info.boards[0].info.board_scores.result == "0.5-1.5" , "The result should be 0.5-1.5, not {}".format(team_match.info.boards[0].info.board_scores.result)
@@ -258,8 +251,6 @@ class CountryTest(unittest.TestCase):
 
         chess_instance = chesswrapper.ChessWrapper()
         country = chess_instance.getCountry("IT")
-        country._getClubs()
-        country.clubs[0]._getProfile()
 
         print(country.clubs[0].profile.name)
         "Country.players should be a list of ChessPlayer objects"

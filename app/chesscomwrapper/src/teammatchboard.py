@@ -1,11 +1,22 @@
+import functools
+from typing import Optional
+
+from .models.teammatch.teammatchboardinfo import TeamMatchBoardInfo
 from .handlers.chesscomhandlers.teammatchboardhandler import TeamMatchBoardHandler
 
 
 class TeamMatchBoard(object):
-    def __init__(self, boardUrl) -> None:
-        self.boardUrl = boardUrl
+    def __init__(self, boardUrl, lazy = True):
 
-    def getInfo(self):
-        self.info = TeamMatchBoardHandler().getInfo(self.boardUrl)
+        self.boardUrl = boardUrl
+        if lazy == False:
+            self.info
+    
+    @functools.cached_property
+    def info(self):
+        return self._getInfo()
+
+    def _getInfo(self) -> Optional[TeamMatchBoardInfo]:
+        return TeamMatchBoardHandler().getInfo(self.boardUrl)
 
 

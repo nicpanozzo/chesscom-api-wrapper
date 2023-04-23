@@ -1,10 +1,10 @@
-from ..player.playergames import ChesscomGame
+from ..player.playergames import ChesscomGameArchived
 
 
 class TeamMatchBoardInfo(object):
     def __init__(self, data):
         self.board_scores = BoardScores(data.get('board_scores', None))
-        self.games = [ChesscomGame(game) for game in data.get('games', [])]
+        self.games = [ChesscomGameArchived(game) for game in data.get('games', [])]
 
 class BoardScores(object):
     def __init__(self, data):

@@ -1,3 +1,4 @@
+from typing import Optional
 from ...models.tournament.tournamnetroundinfo import TournamentRoundInfo
 from ...apimanager import API
 from ..chesscomhandler import ChesscomHandler
@@ -15,7 +16,7 @@ class TournamentHandler(ChesscomHandler):
         pass
 
     
-    def getInfo(self, tournamentId):
+    def getInfo(self, tournamentId) -> Optional[TournamentInfo]:
         """Returns player's monthly archives"""
         response = self.doRequest(tournamentId)
         if response is None:
