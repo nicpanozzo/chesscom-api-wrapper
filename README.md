@@ -138,7 +138,7 @@ print(titledPlayers[0].name)
 
 ## Advanced Usage
 This is a basic UML rapresentation of the package is architectured:
-![Basic UML](doc/UML.png)
+![Basic UML](https://github.com/nicpanozzo/chesscom-api-wrapper/blob/main/doc/UML.png?raw=true)
 ### Handling requests
 The API doesn't allow you to make parallel requests, so the wrapper will handle the requests for you to avoid missusages.
 But if you want to create your own policy, there are few more tricks you can do with this package. You can handle the requests by yourself implementing a RequestHandler, or the error handling by implementing an ErrorHandler. You can also modify the ChesscomHandler to modify the overall behavior of the requests.
