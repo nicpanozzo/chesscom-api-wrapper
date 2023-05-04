@@ -1,5 +1,5 @@
-from chesscomwrapper import ChessWrapper
-nic = ChessWrapper().getPlayer("nicolapanozzo", lazy=True)
+from chesscomwrapper import ChesscomWrapper
+nic = ChesscomWrapper().getPlayer("nicolapanozzo", lazy=True)
 nic.profile
 nic.profile
 

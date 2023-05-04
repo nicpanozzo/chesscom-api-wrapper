@@ -22,7 +22,7 @@ from .chesscountry import ChessCountry
 from .dailypuzzle import PuzzleFactory
 
 from .chessleaderboards import ChessLeaderboards
-class ChessWrapper(object):
+class ChesscomWrapper(object):
   """A class to wrap the chess.com API"""
   
   def __init__(self):

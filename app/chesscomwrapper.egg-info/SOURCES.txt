@@ -19,7 +19,6 @@ app/chesscomwrapper/src/chessteammatch.py
 app/chesscomwrapper/src/chesstournament.py
 app/chesscomwrapper/src/chesswrapper.py
 app/chesscomwrapper/src/dailypuzzle.py
-app/chesscomwrapper/src/lazy_decorator.py
 app/chesscomwrapper/src/playerarchive.py
 app/chesscomwrapper/src/teammatchboard.py
 app/chesscomwrapper/src/tournamentround.py
