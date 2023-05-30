@@ -1,4 +1,5 @@
 class ChesscomGame:
+    """Represents a chess.com game"""
     def __init__(self, data):
         # refactor previus code using .get() method with None as default value
         self.url = data.get("url", None)
@@ -21,6 +22,7 @@ class ChesscomGame:
         self.initial_setup = data.get("initial_setup", None)
 
 class ChesscomGameArchived:
+    """ Represents a chess.com game that has been archived"""
     def __init__(self, data):
         # refactor previus code using .get() method with None as default value
         self.url = data.get("url", None)
@@ -41,6 +43,7 @@ class ChesscomGameArchived:
 
 
 class ChesscomGameToMove(object):
+    """Represents a chess.com game that is currently being played and has to move"""
     def __init__(self, data):
         if data is None:
             return None
@@ -49,6 +52,7 @@ class ChesscomGameToMove(object):
         self.last_activity = data.get("last_activity", None)
 
 class GamePlayer(object):
+    """Represents a chess.com game player in a game"""
     def __init__(self, data):
         if data is None:
             return None

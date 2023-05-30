@@ -1,6 +1,6 @@
 class ChessPlayerProfile:
     def __init__(self, data):
-        """Initializes a ChessPlayerProfile object"""
+        """Initializes a ChessPlayerProfile object that represents a chess.com player profile information"""
         
         self.avatar = data.get('avatar', None)
         self.player_id = data.get('player_id', None)

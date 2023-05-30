@@ -2,6 +2,7 @@ from ...teammatchboard import TeamMatchBoard
 
 
 class TeamMatchInfo(object):
+    """A class to represent a team match info with the id, name, url, start time, end time, status, number of boards, settings, teams and boards"""
     def __init__(self, data):
         self.id = data.get('@id', None)
         self.name = data.get('name', None)
@@ -17,6 +18,7 @@ class TeamMatchInfo(object):
 
 
 class TeamMatchSettings(object):
+    """A class to represent a team match settings with the rules, time class, time control, min team players, max team players, min required games and autostart"""
     def __init__(self, data) -> None:
         self.rules = data.get('rules', None)
         self.time_class = data.get('time_class', None)
@@ -27,6 +29,7 @@ class TeamMatchSettings(object):
         self.autostart = data.get('autostart', None)
 
 class TeamMatchTeams(object):
+    """A class to represent a team match teams with the team1 and team2"""
     def __init__(self, data) -> None:
         self.team1 = TeamMatchTeam(data.get('team1', None))
         self.team2 = TeamMatchTeam(data.get('team2', None))
@@ -42,6 +45,7 @@ class TeamMatchTeam(object):
         self.players = [TeamMatchPlayer(playerdata) for playerdata in data.get('players', [])]
 
 class TeamMatchPlayer(object):
+    """A class to represent a team match player with the username, stats, status, played as white, played as black and board"""
     def __init__(self, data) -> None:
         self.username = data.get('username', None)
         self.stats = data.get('stats', None)

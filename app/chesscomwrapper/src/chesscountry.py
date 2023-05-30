@@ -8,7 +8,10 @@ import functools
 
 
 class ChessCountry(object):
+    """A class to represent a chess.com country"""
+
     def __init__(self, abbr, lazy = True) -> None:
+        """Initializes a ChessCountry object with the given abbreviation, the fetches will be based on that abbreviation"""
         self.code = abbr
         if lazy == False:
             self.info

@@ -1,4 +1,5 @@
 class TournamentSettings(object):
+    """A class to represent a tournament settings with the type, rules, is rated, is official, is invite only, min rating, max rating, initial group size, user advance count, use tiebreak, allow vacation, winner places, registered user count, games per opponent, total rounds, concurrent games per opponent, time class and time control"""
     def __init__(self, data) -> None:
         self.type = data.get('type', None)
         self.rules = data.get('rules', None)

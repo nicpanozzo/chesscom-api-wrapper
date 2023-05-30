@@ -3,6 +3,7 @@ from enum import Enum
 
 
 class TitledCategory(Enum):
+    '''Enum for titled categories'''
     GM = "GM"
     IM = "IM"
     FM = "FM"

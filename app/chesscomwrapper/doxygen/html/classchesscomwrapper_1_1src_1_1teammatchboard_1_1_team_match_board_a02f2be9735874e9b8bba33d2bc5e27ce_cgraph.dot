@@ -1,0 +1,21 @@
+digraph "chesscomwrapper.src.teammatchboard.TeamMatchBoard.info"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="chesscomwrapper.src.teammatchboard.\lTeamMatchBoard.info",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="chesscomwrapper.src.chesscountry.\lChessCountry._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1chesscountry_1_1_chess_country.html#a8c2099672099b18151986bbdf3a0c13d",tooltip=" "];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="chesscomwrapper.src.chessteammatch.\lTeamMatch._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1chessteammatch_1_1_team_match.html#a6c8b0911d2892be3d8c375db5430ff3f",tooltip=" "];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="chesscomwrapper.src.chesstournament.\lTournament._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1chesstournament_1_1_tournament.html#acc4dff3d42e3a6bfd74792befb18ae6f",tooltip=" "];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="chesscomwrapper.src.teammatchboard.\lTeamMatchBoard._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1teammatchboard_1_1_team_match_board.html#a7665e112890ac92cf3a6b5bd823fa3b7",tooltip=" "];
+  Node1 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="chesscomwrapper.src.tournamentround.\lTournamentRound._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1tournamentround_1_1_tournament_round.html#a4bfd7b679a9f4399a73a5b7304d56e20",tooltip=" "];
+  Node1 -> Node7 [color="steelblue1",style="solid"];
+  Node7 [label="chesscomwrapper.src.tournamentroundgroup.\lTournamentRoundGroup._getInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1tournamentroundgroup_1_1_tournament_round_group.html#a940cd9c61f0014f0118fa53cf2e53083",tooltip=" "];
+}

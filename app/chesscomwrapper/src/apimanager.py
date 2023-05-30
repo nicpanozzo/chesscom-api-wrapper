@@ -1,7 +1,10 @@
 class API():
-    """A class to manage API calls"""
+    """A class to store API endpoints for chess.com"""
     # PLAYER API (PLAYER_BASE + username (+ ?))
+
+    ## the base url for the chess.com API
     BASE_URL = "https://api.chess.com/pub/"
+    
     PLAYER_BASE = BASE_URL + "player/"
     STATS = "stats/"
     GAMES = "games/"

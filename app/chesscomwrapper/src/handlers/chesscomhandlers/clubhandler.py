@@ -6,8 +6,13 @@ from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 
-
-class ClubHandler(ChesscomHandler):
+class ClubHandlerInterface:
+    def getMembers(self, clubname) -> list[ClubMember]:
+        pass
+    
+    def getProfile(self, clubname):
+        pass
+class ClubHandler(ChesscomHandler, ClubHandlerInterface):
     
     def __init__(self):
         """Initializes a ArchiveHandler object"""

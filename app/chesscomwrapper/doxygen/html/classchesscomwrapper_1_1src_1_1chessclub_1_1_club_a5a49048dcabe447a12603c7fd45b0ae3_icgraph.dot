@@ -1,0 +1,13 @@
+digraph "chesscomwrapper.src.chessclub.Club._getProfile"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="chesscomwrapper.src.chessclub.\lClub._getProfile",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="chesscomwrapper.src.chessclub.\lClub.profile",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1chessclub_1_1_club.html#a38c2c0aed566d38bc9b088254c450e1e",tooltip="the profile informations of the club"];
+  Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="chesscomwrapper.src.chessplayer.\lChessPlayer.profile",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1chessplayer_1_1_chess_player.html#add643738ab0da480220e23cbd7e9b325",tooltip="the profile informations of the player"];
+}

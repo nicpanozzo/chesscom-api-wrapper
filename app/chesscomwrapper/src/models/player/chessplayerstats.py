@@ -1,4 +1,6 @@
 class ChessPlayerStats:
+    """ Represents a chess player's stats for every time control"""
+
     def __init__(self, data):
         if not data:
             return None
@@ -15,6 +17,7 @@ class ChessPlayerStats:
         self.puzzle_rush_daily = PuzzleRush(data.get("puzzle_rush_daily", None))
 
 class ChessVariant:
+    """ Represents a chess variant """
     def __init__(self, data):
         if not data:
             return None
@@ -24,6 +27,7 @@ class ChessVariant:
         self.tournament = ChessTournament(data.get("tournament"))
 
 class ChessRating:
+    """ Represents a chess rating """
     def __init__(self, data):
         if not data:
             return None
@@ -32,6 +36,7 @@ class ChessRating:
         self.rd = data.get("rd", None)
 
 class ChessBest:
+    """ Represents a chess best rating"""
     def __init__(self, data):
         if not data:
             return None
@@ -40,6 +45,7 @@ class ChessBest:
         self.game = data.get("game", None)
 
 class ChessRecord:
+    """ Represents a chess record with wins, losses, draws, time per move, and timeout percent"""
     def __init__(self, data):
         if not data:
             return None
@@ -50,6 +56,7 @@ class ChessRecord:
         self.timeout_percent = data.get("timeout_percent", None)
 
 class ChessTournament:
+    """ Represents a chess tournament with points, withdraw, count, and highest finish"""
     def __init__(self, data):
         if not data:
             return None
@@ -59,6 +66,7 @@ class ChessTournament:
         self.highest_finish = data.get("highest_finish", None)
 
 class Tactics:
+    """ Represents a tactics rating with highest and lowest score"""
     def __init__(self, data):
         if not data:
             return None
@@ -66,6 +74,7 @@ class Tactics:
         self.lowest = TacticsRating(data.get("lowest", None))
 
 class TacticsRating:
+    """ Represents a tactics rating with score and date"""
     def __init__(self, data):
         if not data:
             return None
@@ -73,12 +82,14 @@ class TacticsRating:
         self.date = data.get("date", None)
 
 class PuzzleRush:
+    """ Represents a puzzle rush score with best score"""
     def __init__(self, data):
         if not data:
             return None
         self.best = PuzzleRushScore(data.get("best", None))
 
 class PuzzleRushScore:
+    """ Represents a puzzle rush score with score and total attempts taken"""
     def __init__(self, data):
         if not data:
             return None

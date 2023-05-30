@@ -6,6 +6,7 @@ from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 
 
 class PuzzleHandler(ChesscomHandler):
+    """A class to handle the requests to the chess.com API regarding a puzzle"""
     def __init__(self) -> None:
         self.errorHandler = NoneErrorHandler()
         self.requestHandler = SingletonRequestHandler()

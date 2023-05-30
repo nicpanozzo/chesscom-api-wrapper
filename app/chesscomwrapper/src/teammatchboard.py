@@ -6,8 +6,10 @@ from .handlers.chesscomhandlers.teammatchboardhandler import TeamMatchBoardHandl
 
 
 class TeamMatchBoard(object):
-    def __init__(self, boardUrl, lazy = True):
+    """A class to represent a chess.com team match board"""
 
+    def __init__(self, boardUrl, lazy = True):
+        """Initializes a TeamMatchBoard object with the given boardUrl, the fetches will be based on that boardUrl"""
         self.boardUrl = boardUrl
         if lazy == False:
             self.info

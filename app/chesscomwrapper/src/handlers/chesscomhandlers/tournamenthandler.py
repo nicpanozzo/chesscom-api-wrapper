@@ -8,7 +8,7 @@ from ...models.tournament.tournamentinfo import TournamentInfo
 
 
 class TournamentHandler(ChesscomHandler):
-    
+    """A class to handle the requests to the chess.com API regarding a tournament"""
     def __init__(self):
         """Initializes a ArchiveHandler object"""
         self.errorHandler = NoneErrorHandler()

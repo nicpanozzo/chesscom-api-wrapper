@@ -15,8 +15,34 @@ from ..chesscomhandler import ChesscomHandler
 from ...models.player.chessplayerprofile import ChessPlayerProfile
 from ...models.player.chessplayerstats import ChessPlayerStats
 
+class PlayerHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding a player"""
+    def getPlayerProfile(self, username) -> Optional[ChessPlayerProfile]:
+        pass
 
-class PlayerHandler(ChesscomHandler):
+    def getPlayerStats(self, username) -> Optional[ChessPlayerStats]:
+        pass
+
+    def getPlayerGames(self, username) -> Optional[list[ChesscomGame]]:
+        pass
+
+    def getPlayerGamesToMove(self, username) -> Optional[list[ChesscomGameToMove]]:
+        pass
+
+    def getPlayerTournaments(self, username) -> Optional[PlayerTournaments]:
+        pass
+    
+    def getPlayerClubs(self, username) -> Optional[list[PlayerClub]]:
+        pass
+
+    def getPlayerArchives(self, username) -> Optional[PlayerArchive]:
+        pass
+
+    def getTitledPlayers(self, category: TitledCategory) -> Optional[list[ChessPlayerProfile]]:
+        pass
+
+
+class PlayerHandler(ChesscomHandler, PlayerHandlerInterface):
     """ Handles requests for player data """
     
     def __init__(self):

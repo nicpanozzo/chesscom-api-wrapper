@@ -1,4 +1,5 @@
 class ChessStreamerInfo(object):
+    """A class to represent a chess.com streamer"""
     def __init__(self, data) -> None:
         self.username = data.get('username', None)
         self.avatar = data.get('avatar', None)

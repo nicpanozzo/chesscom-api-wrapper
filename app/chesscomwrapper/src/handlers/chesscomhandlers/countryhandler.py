@@ -1,3 +1,4 @@
+from typing import Optional
 from ...chessclub import Club
 from ...chessplayer import ChessPlayer
 from ...models.country.countryinfo import CountryInfo
@@ -16,7 +17,7 @@ class CountryHandler(ChesscomHandler):
         pass
 
 
-    def getInfo(self, code):
+    def getInfo(self, code) -> Optional[CountryInfo]:
         """Returns player's monthly archives"""
         response = self.doRequest(API.BASE_URL + API.COUNTRY + code)
         if response is None:

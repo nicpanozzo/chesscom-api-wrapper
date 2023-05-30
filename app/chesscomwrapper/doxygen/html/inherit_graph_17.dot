@@ -1,0 +1,23 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [label="Exception",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="chesscomwrapper.src.handlers.errorhandler.\lChesscomError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_chesscom_error.html",tooltip="Base class for other exceptions."];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="chesscomwrapper.src.handlers.errorhandler.\lCacheError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_cache_error.html",tooltip="Raised when the cache is not available."];
+  Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="chesscomwrapper.src.handlers.errorhandler.\lDataNotAvailableError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_data_not_available_error.html",tooltip="Raised when the data requested is not available."];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="chesscomwrapper.src.handlers.errorhandler.\lMalformedUrlError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_malformed_url_error.html",tooltip="Raised when the URL is malformed."];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="chesscomwrapper.src.handlers.errorhandler.\lMovedPermanentlyError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_moved_permanently_error.html",tooltip="Raised wehn the URL you requested is bad, but we know where it should be; your client should remember..."];
+  Node1 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="chesscomwrapper.src.handlers.errorhandler.\lOtherError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_other_error.html",tooltip="Raised when the data requested is not available."];
+  Node1 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="chesscomwrapper.src.handlers.errorhandler.\lRateLimitError",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1errorhandler_1_1_rate_limit_error.html",tooltip="Raised when the rate limit is exceeded."];
+}

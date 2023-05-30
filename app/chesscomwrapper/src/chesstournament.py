@@ -6,7 +6,10 @@ from .handlers.chesscomhandlers.tournamenthandler import TournamentHandler
 
 
 class Tournament(object):
+    """A class to represent a chess.com tournament"""
+
     def __init__(self, id, lazy = True):
+        """Initializes a Tournament object with the given id, the fetches will be based on that id"""
         self.id = id
         if lazy == False:
             self.info

@@ -5,7 +5,7 @@ from ...models.teammatch.teammatchinfo import TeamMatchInfo
 
 
 class TeamMatchHandler(ChesscomHandler):
-    
+    """A class to handle the requests to the chess.com API regarding a round"""
     def __init__(self):
         """Initializes a RoundHandler object"""
         self.errorHandler = NoneErrorHandler()

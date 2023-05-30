@@ -1,5 +1,6 @@
 
 class ClubProfile(object):
+    """Represents a club profile"""
     def __init__(self, data: dict):
         self.idUrl = data.get('@id', None)
         self.name = data.get('name', None)

@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['base_5furl_0',['BASE_URL',['../classchesscomwrapper_1_1src_1_1apimanager_1_1_a_p_i.html#af7da46bd8c36c4e2bf9d9b1a1a0353a9',1,'chesscomwrapper::src::apimanager::API']]],
+  ['battle_1',['battle',['../classchesscomwrapper_1_1src_1_1models_1_1leaderboards_1_1leaderboardsinfo_1_1_leaderboards_info.html#ae17ea8032c43b0e34d1416104fd822d6',1,'chesscomwrapper::src::models::leaderboards::leaderboardsinfo::LeaderboardsInfo']]],
+  ['best_2',['best',['../classchesscomwrapper_1_1src_1_1models_1_1player_1_1chessplayerstats_1_1_chess_variant.html#aaf1df659b5af1e51a7e9ee9cb0dab4db',1,'chesscomwrapper.src.models.player.chessplayerstats.ChessVariant.best()'],['../classchesscomwrapper_1_1src_1_1models_1_1player_1_1chessplayerstats_1_1_puzzle_rush.html#a092fcfa7391450f08ecf54472fc3ebc2',1,'chesscomwrapper.src.models.player.chessplayerstats.PuzzleRush.best()']]],
+  ['black_3',['black',['../classchesscomwrapper_1_1src_1_1models_1_1player_1_1playergames_1_1_chesscom_game.html#a11c1db0794be5de494746d3cfebdba3e',1,'chesscomwrapper.src.models.player.playergames.ChesscomGame.black()'],['../classchesscomwrapper_1_1src_1_1models_1_1player_1_1playergames_1_1_chesscom_game_archived.html#acb5ed9bd110cd4d9f5ae1151cac68000',1,'chesscomwrapper.src.models.player.playergames.ChesscomGameArchived.black()']]],
+  ['board_4',['board',['../classchesscomwrapper_1_1src_1_1models_1_1teammatch_1_1teammatchinfo_1_1_team_match_player.html#af202df28589f7af554c98fc7007cb66e',1,'chesscomwrapper::src::models::teammatch::teammatchinfo::TeamMatchPlayer']]],
+  ['board_5fscores_5',['board_scores',['../classchesscomwrapper_1_1src_1_1models_1_1teammatch_1_1teammatchboardinfo_1_1_team_match_board_info.html#afd087f430fda7d700c18edc7b7164f24',1,'chesscomwrapper::src::models::teammatch::teammatchboardinfo::TeamMatchBoardInfo']]],
+  ['boards_6',['boards',['../classchesscomwrapper_1_1src_1_1models_1_1teammatch_1_1teammatchinfo_1_1_team_match_info.html#accbb4eab2cdf364ddf60fed3cf773804',1,'chesscomwrapper::src::models::teammatch::teammatchinfo::TeamMatchInfo']]],
+  ['boardscores_7',['BoardScores',['../classchesscomwrapper_1_1src_1_1models_1_1teammatch_1_1teammatchboardinfo_1_1_board_scores.html',1,'chesscomwrapper::src::models::teammatch::teammatchboardinfo']]],
+  ['boardurl_8',['boardUrl',['../classchesscomwrapper_1_1src_1_1teammatchboard_1_1_team_match_board.html#a62f13d94ddce66514edc02a6779343da',1,'chesscomwrapper::src::teammatchboard::TeamMatchBoard']]]
+];

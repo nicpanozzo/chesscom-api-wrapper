@@ -1,0 +1,19 @@
+digraph "chesscomwrapper.src.handlers.chesscomhandlers.teammatchhandler.TeamMatchHandler.getInfo"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="chesscomwrapper.src.handlers.chesscomhandlers.teammatchhandler.\lTeamMatchHandler.getInfo",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Returns player's monthly archives."];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="chesscomwrapper.src.handlers.requesthandler.\lRequestHandler.doRequest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1requesthandler_1_1_request_handler.html#ac7bf82dd0e0fbf726399c2669eb9783f",tooltip="Returns a dictionary of a player's info."];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="chesscomwrapper.src.handlers.requesthandlers.singletonrequesthandler.\lSingletonRequestHandler.doRequest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1requesthandlers_1_1singletonrequesthandler_1_1_singleton_request_handler.html#a58d6817aed4fc4eb0fb7aeb80e74d3fb",tooltip="Returns a dictionary of a player's info."];
+  Node3 -> Node2 [color="steelblue1",style="solid"];
+  Node3 -> Node3 [color="steelblue1",style="solid"];
+  Node3 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="chesscomwrapper.src.handlers.chesscomhandler.\lChesscomHandler.doRequest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler.html#afd9fb00ef7bd98bbb63f57d906db8600",tooltip="Returns a dictionary of a player's info."];
+  Node4 -> Node4 [color="steelblue1",style="solid"];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+}

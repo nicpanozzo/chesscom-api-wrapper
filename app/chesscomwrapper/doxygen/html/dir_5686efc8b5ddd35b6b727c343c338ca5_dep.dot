@@ -1,0 +1,18 @@
+digraph "/Users/nicolapanozzo/unibo/Kaunas Courses/Component Based Software Engineering/chesscom_api_wrapper/app/chesscomwrapper/src/handlers"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="src", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html",tooltip=""]
+  subgraph clusterdir_5686efc8b5ddd35b6b727c343c338ca5 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_5686efc8b5ddd35b6b727c343c338ca5.html",tooltip=""]
+    dir_5686efc8b5ddd35b6b727c343c338ca5 [shape=plaintext, label="handlers"];
+  dir_f7b62fadcdc45a4e9f942a9b99ae66a0 [label="chesscomhandlers", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_f7b62fadcdc45a4e9f942a9b99ae66a0.html",tooltip=""];
+  dir_4155c2fd4905f9ed6d3b955603411e09 [label="errorhandlers", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_4155c2fd4905f9ed6d3b955603411e09.html",tooltip=""];
+  dir_dc1ed5c356f8819433ca9407ac282f30 [label="requesthandlers", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_dc1ed5c356f8819433ca9407ac282f30.html",tooltip=""];
+  }
+  }
+}

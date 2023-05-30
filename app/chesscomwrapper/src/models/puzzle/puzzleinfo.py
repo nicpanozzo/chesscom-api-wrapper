@@ -1,4 +1,5 @@
 class PuzzleInfo(object):
+    """A class to represent a puzzle info with the title, url, publish time, fen, pgn and image"""
     def __init__(self, data):
         self.title = data.get("title", None)
         self.url = data.get("url", None)

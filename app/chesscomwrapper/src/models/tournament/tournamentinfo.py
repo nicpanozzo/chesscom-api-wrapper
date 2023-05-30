@@ -4,6 +4,7 @@ from ...tournamentround import TournamentRound
 
 
 class TournamentInfo(object):
+    """A class to represent a tournament info with the id, name, url, description, creator, status, finish time, settings, players and rounds"""
     def __init__(self, data) -> None:
         self.id = data.get('@id', None)
         self.name = data.get('name', None)

@@ -6,6 +6,7 @@ from .handlers.chesscomhandlers.roundinfohandler import RoundInfoHandler
 
 
 class TournamentRoundGroup(object):
+    """A class to represent a chess.com tournament round group, which is a group of rounds"""
     def __init__(self, url, lazy = True) -> None:
         self.url = url
         if lazy == False:

@@ -3,6 +3,7 @@ from .handlers.chesscomhandlers.archivehandler import ArchiveHandler
 
 
 class PlayerArchive(object):
+    """A class to represent a chess.com player archive of games, by month and year"""
     def __init__(self,username, year, month, lazy = True) -> None:
         self.username = username
         self.year = year
@@ -17,6 +18,7 @@ class PlayerArchive(object):
     
     @functools.cached_property
     def pgn(self):
+        """Returns the PGN notation of the player's games in the given month and year"""
         return self._getPGN()
 
     def _getGames(self):
