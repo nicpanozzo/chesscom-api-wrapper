@@ -25,5 +25,6 @@ var searchData=
   ['clubmember_22',['ClubMember',['../classchesscomwrapper_1_1src_1_1models_1_1club_1_1clubmember_1_1_club_member.html',1,'chesscomwrapper::src::models::club::clubmember']]],
   ['clubprofile_23',['ClubProfile',['../classchesscomwrapper_1_1src_1_1models_1_1club_1_1clubprofile_1_1_club_profile.html',1,'chesscomwrapper::src::models::club::clubprofile']]],
   ['countryhandler_24',['CountryHandler',['../classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler.html',1,'chesscomwrapper::src::handlers::chesscomhandlers::countryhandler']]],
-  ['countryinfo_25',['CountryInfo',['../classchesscomwrapper_1_1src_1_1models_1_1country_1_1countryinfo_1_1_country_info.html',1,'chesscomwrapper::src::models::country::countryinfo']]]
+  ['countryhandlerinterface_25',['CountryHandlerInterface',['../classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html',1,'chesscomwrapper::src::handlers::chesscomhandlers::countryhandler']]],
+  ['countryinfo_26',['CountryInfo',['../classchesscomwrapper_1_1src_1_1models_1_1country_1_1countryinfo_1_1_country_info.html',1,'chesscomwrapper::src::models::country::countryinfo']]]
 ];

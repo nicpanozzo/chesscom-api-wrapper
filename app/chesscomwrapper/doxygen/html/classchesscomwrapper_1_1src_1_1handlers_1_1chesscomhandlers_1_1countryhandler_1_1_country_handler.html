@@ -86,7 +86,8 @@ Inheritance diagram for chesscomwrapper.src.handlers.chesscomhandlers.countryhan
  <div class="center">
   <img src="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler.png" usemap="#chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandler_map" alt=""/>
   <map id="chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandler_map" name="chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandler_map">
-<area href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler.html" title="Interface for RequestHandler." alt="chesscomwrapper.src.handlers.chesscomhandler.ChesscomHandler" shape="rect" coords="0,56,483,80"/>
+<area href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler.html" title="Interface for RequestHandler." alt="chesscomwrapper.src.handlers.chesscomhandler.ChesscomHandler" shape="rect" coords="0,56,533,80"/>
+<area href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html" title="An interface to handle the requests to the chess.com API regarding a country." alt="chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandlerInterface" shape="rect" coords="543,56,1076,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -108,6 +109,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afd9fb00ef7bd98bbb63f57d906db8600 inherit pub_methods_classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler.html#afd9fb00ef7bd98bbb63f57d906db8600">doRequest</a> (self, endpoint, ts=1)</td></tr>
 <tr class="memdesc:afd9fb00ef7bd98bbb63f57d906db8600 inherit pub_methods_classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a dictionary of a player's info.  <br /></td></tr>
 <tr class="separator:afd9fb00ef7bd98bbb63f57d906db8600 inherit pub_methods_classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandler_1_1_chesscom_handler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6f2becae507c05d7148303e6320805"><td class="memItemLeft" align="right" valign="top">list[<a class="el" href="classchesscomwrapper_1_1src_1_1chessclub_1_1_club.html">Club</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a4d6f2becae507c05d7148303e6320805">getClubs</a> (self, code)</td></tr>
+<tr class="memdesc:a4d6f2becae507c05d7148303e6320805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns country's clubs.  <br /></td></tr>
+<tr class="separator:a4d6f2becae507c05d7148303e6320805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a517a4de103a372ff084b4807902ae14c"><td class="memItemLeft" align="right" valign="top">Optional[<a class="el" href="classchesscomwrapper_1_1src_1_1models_1_1country_1_1countryinfo_1_1_country_info.html">CountryInfo</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a517a4de103a372ff084b4807902ae14c">getInfo</a> (self, code)</td></tr>
+<tr class="memdesc:a517a4de103a372ff084b4807902ae14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns player's monthly archives.  <br /></td></tr>
+<tr class="separator:a517a4de103a372ff084b4807902ae14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc3c39db2b8f25f88d604e019566cf5"><td class="memItemLeft" align="right" valign="top">list[<a class="el" href="classchesscomwrapper_1_1src_1_1chessplayer_1_1_chess_player.html">ChessPlayer</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a4cc3c39db2b8f25f88d604e019566cf5">getPlayers</a> (self, code)</td></tr>
+<tr class="memdesc:a4cc3c39db2b8f25f88d604e019566cf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns country's players.  <br /></td></tr>
+<tr class="separator:a4cc3c39db2b8f25f88d604e019566cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -174,6 +184,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns country's clubs. </p>
 
+<p>Reimplemented from <a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a4d6f2becae507c05d7148303e6320805">chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandlerInterface</a>.</p>
+
 </div>
 </div>
 <a id="a27ec067c53a35bec9ba6da79f0bbb1c7" name="a27ec067c53a35bec9ba6da79f0bbb1c7"></a>
@@ -204,6 +216,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns player's monthly archives. </p>
 
+<p>Reimplemented from <a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a517a4de103a372ff084b4807902ae14c">chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandlerInterface</a>.</p>
+
 </div>
 </div>
 <a id="a217405fe04a162ba28f7643d0186fcf7" name="a217405fe04a162ba28f7643d0186fcf7"></a>
@@ -233,6 +247,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns country's players. </p>
+
+<p>Reimplemented from <a class="el" href="classchesscomwrapper_1_1src_1_1handlers_1_1chesscomhandlers_1_1countryhandler_1_1_country_handler_interface.html#a4cc3c39db2b8f25f88d604e019566cf5">chesscomwrapper.src.handlers.chesscomhandlers.countryhandler.CountryHandlerInterface</a>.</p>
 
 </div>
 </div>
