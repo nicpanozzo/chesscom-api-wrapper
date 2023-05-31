@@ -7,8 +7,21 @@ from ..chesscomhandler import ChesscomHandler
 from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 
+class CountryHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding a country"""
+    def getInfo(self, code) -> Optional[CountryInfo]:
+        """Returns player's monthly archives"""
+        pass
+    
+    def getPlayers(self, code) -> list[ChessPlayer]:
+        """Returns country's players"""
+        pass
+    
+    def getClubs(self, code) -> list[Club]:
+        """Returns country's clubs"""
+        pass
 
-class CountryHandler(ChesscomHandler):
+class CountryHandler(ChesscomHandler, CountryHandlerInterface):
     
     def __init__(self):
         """Initializes a RoundHandler object"""

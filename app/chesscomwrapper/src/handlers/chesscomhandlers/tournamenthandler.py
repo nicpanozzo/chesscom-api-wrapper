@@ -6,6 +6,17 @@ from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ...models.tournament.tournamentinfo import TournamentInfo
 
+class TournamentHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding a tournament"""
+    def getInfo(self, tournamentId) -> Optional[TournamentInfo]:
+        """Returns player's monthly archives"""
+        pass
+    
+    def getRoundInfo(self, tournamentId, round) -> Optional[TournamentRoundInfo]:
+        pass
+
+    def getRoundGroupInfo() -> Optional[TournamentRoundInfo]:
+        pass
 
 class TournamentHandler(ChesscomHandler):
     """A class to handle the requests to the chess.com API regarding a tournament"""
@@ -24,7 +35,7 @@ class TournamentHandler(ChesscomHandler):
         info = TournamentInfo(response.json())
         return info
     
-    def getRoundInfo(self, tournamentId, round):
+    def getRoundInfo(self, tournamentId, round) -> Optional[TournamentRoundInfo]:
         """Returns tournament rounds info"""
         response = self.doRequest(tournamentId + "/" + round)
         if response is None:
@@ -32,7 +43,7 @@ class TournamentHandler(ChesscomHandler):
         roundInfo = TournamentRoundInfo(response.json())
         return roundInfo
 
-    def getRoundGroupInfo():
+    def getRoundGroupInfo() -> Optional[TournamentRoundInfo]:
         pass
 
     # def getGames(self, username, year, month):

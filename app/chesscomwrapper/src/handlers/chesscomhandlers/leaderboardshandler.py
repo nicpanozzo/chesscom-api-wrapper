@@ -5,7 +5,12 @@ from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ..chesscomhandler import ChesscomHandler
 
 
-class LeaderboardsHandler(ChesscomHandler):
+class LeaderboardsHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding the leaderboards"""
+    def getLeaderboards(self) -> LeaderboardsInfo:
+        pass
+
+class LeaderboardsHandler(ChesscomHandler, LeaderboardsHandlerInterface):
     """A class to handle the requests to the chess.com API regarding the leaderboards"""
     def __init__(self):
         """Initializes a LeaderboardsHandler object"""

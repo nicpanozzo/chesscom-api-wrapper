@@ -5,7 +5,16 @@ from ..errorhandlers.noneerrorhandler import NoneErrorHandler
 from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 
 
-class PuzzleHandler(ChesscomHandler):
+class PuzzleHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding a puzzle"""
+    def getDaily(self) -> PuzzleInfo:
+        pass
+    
+    def getRandomPuzzle(self) -> PuzzleInfo:
+        pass
+
+
+class PuzzleHandler(ChesscomHandler, PuzzleHandlerInterface):
     """A class to handle the requests to the chess.com API regarding a puzzle"""
     def __init__(self) -> None:
         self.errorHandler = NoneErrorHandler()

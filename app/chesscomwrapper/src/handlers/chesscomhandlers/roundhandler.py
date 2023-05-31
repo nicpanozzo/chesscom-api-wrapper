@@ -3,6 +3,11 @@ from ..requesthandlers.singletonrequesthandler import SingletonRequestHandler
 from ..chesscomhandler import ChesscomHandler
 from ...models.tournament.tournamnetroundinfo import TournamentRoundInfo
 
+class RoundHandlerInterface:
+    """An interface to handle the requests to the chess.com API regarding a round"""
+    def getInfo(self, url):
+        """ Returns a TournamentRoundInfo object"""
+        pass
 
 class RoundHandler(ChesscomHandler):
     """A class to handle the requests to the chess.com API regarding a round"""
@@ -14,7 +19,7 @@ class RoundHandler(ChesscomHandler):
 
 
     def getInfo(self, url):
-        """Returns player's monthly archives"""
+        """ Returns a TournamentRoundInfo object"""
         response = self.doRequest(url)
         if response is None:
             return None
